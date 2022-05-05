@@ -1,0 +1,18 @@
+CE 1911 WITH DR. JOHNSON
+Man, this is a familiar spot. But witty remarks aside, I'll cut to the chase.
+
+MAJOR CLASS TOPICS
+    SYNCHRONOUS LOGIC DESIGN
+        - Gate level design
+        - HDL design
+    DIGITAL DESIGN VERIFICATION
+        - Test benches
+        - FPGA implementation
+    DIGITAL SYSTEM DESIGN
+        - Finite state machines
+        - Data paths
+        - Single-cycle processors
+
+Naturally, there's some prerequisite to all this stuff, and we can't talk about this without
+talking about the digital design flow. For all this stuff, and until we do some VHDL, I'll go to my
+iPad.

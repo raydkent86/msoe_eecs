@@ -1,0 +1,208 @@
+You may notice that all the numbers for these notes are hexadecimal.
+That's because we're trying to get into the mood of computing, where there are no 2s, 3s, 4s, 5s,
+6s, 7s, 8s, or 9s - there are only ones and zeroes - high states and low states of digital signal.
+
+Of course, none of this would mean anything without a little intro, so here we go:
+
+UNSIGNED BINARY
+    - all n bits used to represent the magnitude of the value
+    - nothing is negative
+    - often used when describing memory addresses, counts, etc.
+    - each digit is either 0 or 1 and represents a signal being either on or off
+    - as a result, each digit is valued at the next power of two beyond the one before it
+      (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192...)
+        50 = 0B 0011 0100
+        0B 1001 0110 = 150
+    - binary can also, however, be used for fractional quantities in a similar way, with fractional
+      binary digits showing the same pattern (1/2, 1/4, 1/8, 1/16, 1/32, 1/64, 1/128, 1/256...)
+        0.625 = 0B .1010 0000
+    - represented by 0B or a subscript 2 beneath a value
+    - as mentioned before, max values vary by bit width
+        4 bits (nibble):        0B 1111 = 15
+        8 bits (byte/octet):    0B 1111 1111 = 255
+        16 bits (word):         0B 1111 1111 1111 1111 = 65535
+        32 bits (double word):  0B 1111 1111 1111 1111 1111 1111 1111 1111 = 4294967295
+TWO'S COMPLEMENT
+    - unsigned binary are great for sequential things, but not so great for actual math because
+      real numbers are often negative
+    - additionally, one cannot subtract without negative numbers based on the mathematical
+      definition of subtraction [a - b = a + (-b)]
+    - as a result, to subtract numbers and to define negative numbers, we need some kind of
+      solution, and, as mentioned in CE 1901, simply taking a bit away and using it as a sign
+      bit doesn't really work all that well - addition gets thrown off, and there ends up
+      being more than one thing that can represent zero (1000 and 0000 are both zero in a
+      4 bit sign-magnitude number)
+    - we therefore need to go to the mathematical definition of the negative:
+        -a = 0 - (+a)  ->  (+a) + (-a) = 0
+    - in other words, the negative is whatever value cancels out the positive, and we can take
+      advantage of binary's fixed bit width and resultant propensity to overflow to express
+      negative values as TWO'S COMPLEMENT NUMBERS
+    - NEGATIVE NUMBERS are formed by flipping all bits and adding one
+    - POSITIVE NUMBERS are formed in the normal binary format
+    - most significant bit still represents the sign (but IS NOT A SIGN BIT)
+        MSB = 0 -> POSITIVE
+        MSB = 1 -> NEGATIVE
+    - all bits used to represent the magnitude, just like before
+    - two's complement is the dominant representation for binary arithmetic
+        50 -> 0B 0011 0010
+       -50 -> 0B 1100 1110 (1100 1101 + 0000 0001 - flip and add)
+    - however, the RANGE IS NOT SYMMETRICAL
+        4 bits (nibble):        -8 to 7 (-2^3 to2^3 - 1)
+        8 bits (byte/octet):    -128 to 127 (-2^7 to 2^7 - 1)
+        16 bits (word):         -32768 to 32767 (-2^15 to 2^15 - 1)
+        n bits (what the &*@!): -2^(n-1) to [2^(n-1) - 1]
+    - as a result, there are good and bad things
+    ADVANTAGES
+        + addition is the same as unsigned numbers, therefore no new adder circuits needed
+        + ONLY HAS ONE ZERO(!)
+        + word length extension is simple
+            -> extending to larger word sizes is as easy as extending the most significant
+               bit to the left to the end of the new word
+            -> as a result, 0110 becomes 0000 0110 in 8 bit and 0000 0000 0000 0100 in 16 bit
+            -> similarly, 1001 goes to 1111 1001 in 8 bit and 1111 1111 1111 1001 in 16 bit
+            -> "sign bit extension"
+    DISADVANTAGES
+        - asymmetrical range
+        - harder to compare numbers
+        - not intuitive if you're, say, a human bean
+HEXADECIMAL
+    - because it's a base-sixteen number system, hex groups sets of four binary bits, turning 
+      each nibble into a single digit from 0 to F
+        + base-sixteen means sixteen digits exist representing the values 0-15
+        + the first ten digits are represented by decimal values (0-9)
+        + the next six digits, equivalent to 10-15 in decimal, are represented by letters
+            10 -> A
+            11 -> B
+            12 -> C
+            13 -> D
+            14 -> E
+            15 -> F
+    - hexadecimal is basically always used in practice instead of binary since it's a much
+      less tedious process to write - this is why binary bits are grouped in fours, because it
+      makes the hexadecimal conversion much easier
+        0B 1011 -> 0xB
+        0B 0110 -> 0x6
+        0B 1110 -> 0xE
+        
+        0B 1011 0110 -> 0xB6
+        0B 0110 1110 -> 0x6E
+
+        0B 1011 0110 0110 1110 -> 0xB66E
+
+        0B 1011 1010 1010 1101 1111 0000 0000 1101 -> 0xBAADF00D (lol)
+        0B 1010 1011 1010 1101 1101 0000 0000 1101 -> 0xABADD00D (also lol)
+        0B 1101 1110 1010 1101 1011 1110 1110 1111 -> 0xDEADBEEF (OK, I'll stop)
+    - when it's not obvious, one must indicate whether the hex number is unsigned or a two's
+      complement binary
+    - all those little 0x's that I put above are the way that most people (and by most people
+      I mean Microsoft, because they own the OS market to this day) indicate hex values, but
+      there are a few other possible versions that work as well
+        12CDh (h at end)
+        h12CD (h at beginning)
+        $12CD ($ at beginning)
+        0x12CD (0x at beginning - this is the most common)
+    - different processors and people use different shorthand, I use the 0x because that's
+      how I've always seen it and that's how it's most clear to me
+FLOATING POINT NUMBERS
+    - sometimes, however, integer math is not enough - one needs to do scientific or physical
+      calculations with real quantities that have a decimal point, and that requires FLOATING
+      POINT OPERATIONS
+    - represented in scientific notation with only one digit to the left of the decimal point
+      along with a bunch of others that are then multiplied by ten
+        5692.3456  -> 5.6923456E+3
+        0.00023456 -> 2.3456E-4
+    - in binary, a similar approach has to be taken, where the mantissa is instead multiplied
+      by a power of two rather than a power of ten
+        + if we convert the number 5692.3456 from before to binary, we get
+            0001 0110 0011 1100 . 0101 1000 0111 1001 and we're out of bits.
+            So immediately you see the problem: getting an exact representation of most decimal
+            numbers using binary is impossible because there are an uncountably infinite number
+            of decimal values who are not equivalent to the sum of some combination of 1/2^n,
+            which is why fractional conversions between number systems are fucking stupid and
+            should never be done.
+
+            Unfortunately, we are, in fact, stuck with this problem because, in the real world,
+            we don't have the time or the money to have everyone calculate all of our complex
+            physics problems by hand. The numbers we deal with are so big that we would be
+            discussing the heat death of the universe before we were finished with them using
+            the methods we have, even with slide rules. Quantum physics cannot be done by hand
+            really at all, and most problems that can be done by hand in a reasonable amount
+            of time would end up so convoluted in their methodology that we would lose hours
+            of possible productivity pissing around over exact digits, which still wouldn't be
+            completely right anyway because our ability to measure as human beings isn't exact
+            either.
+
+            What anyone with any common sense, then, would do, would be to simply throw it at
+            the computer, accept that whatever precision loss is going to occur through the
+            computer's operations is going to be less than the accuracy of whatever instrument
+            we've engineered to measure things, and realize that we can get most calculations
+            to be just about as accurate as we'll ever want them for any tolerance of any real
+            application that could possibly exist by using a floating point value that
+            approximates that decimal to as many negative powers of two as possible (for the
+            same reason, using negative powers in floating point arithmetic is dicey as well,
+            but we'll get to that a lot later - like, master's and PhD computer science and
+            electrical engineering level later). This method of cutting one's losses gets
+            mostly around the limitation that lies in the definition of the fraction itself
+            and has led to breakthroughs including NASA putting men on the moon and finding the
+            radius of the Earth, MathWorks coming up with MATLAB and revolutionizing
+            calculators forever, and Intel being able to produce MOSFETs so small that the
+            average modern computer can clock at over a billion cycles a second while being
+            no heavier than a typical school binder - and that's not even getting into the fact
+            that the modern iPhone clocks faster than most of those computers and uses less
+            power at the same time.
+
+            With that being said... let's take a look at what that 32 bit floating point number
+            is really equal to:
+            0B 0001 0110 0011 1100 . 0101 1000 0111 1001 -> 5692.3456
+            
+            When you do that calculation with MATLAB, it rounds it off to 3456 anyway, which
+            only serves to make my point: the precision lost is trivial and the calculation
+            speed is much faster than any human being could ever hope to achieve. Even Isaac
+            Newton, the greatest genius in the history of humanity, would struggle to achieve
+            that -- and by "struggle" I mean "just wouldn't be able to" because some of us live
+            in the real world. Single-precision (32 bit) floating point numbers span five or
+            six orders of magnitude before they lose any precision, and double-precision
+            floating point numbers have double the bit width and so much precision that just
+            about any calculation one would do would struggle to go anywhere into anything
+            noticible in the way of lost value until you get well into the tens or hundreds of
+            float operations in a row.
+
+            Who knows - maybe when we're calculating distances from Earth and going at speeds
+            faster than light we'll need that extra range of the 128-bit floating point
+            numbers to know when to drop out of warp, but by then, I have faith that compute
+            will have advanced enough that we won't have to worry about it. In fact, given
+            what NASA did with Apollo and the Space Shuttle on literally ONE MEGABYTE, all
+            these nerds bitching about slow performance of video games (and less of nerds
+            wanting to run beefier and beefier emulations of musical instruments over MIDI
+            through their computers with so little latency they would think they were playing
+            the real thing, even as the computer runs an ever-more-bloated and memory-hungry
+            operating system in the background) means we probably won't have to worry about
+            bit width and compute on important machines ever again.
+        + anyway, that number reduces to a mantissa of one-point-some fraction (because binary,
+          and the first digit can only ever be one because it's the most significant digit), an
+          exponent, and a bias (which is used in representing negative exponents - because
+          exponents are integers by definition, it's easier to simply represent negative numbers
+          as positive numbers in memory and then subtract the bias - for example, the IEEE
+          standard exponent is eight bits and has a sign-magnitude range of -127 to 127, so we
+          add 127 to make things positive and we have an exponent with +127 bias, creating a
+          representational range of 0 to 254)
+    - the IEEE standard for floating point numbers is a 32 bit structure in this form:
+        value = (-1 * [SIGN]) * 1.[FRACTION] * 2^([EXPONENT] - 127)
+        8 bit exponent
+        23 bit fraction
+        one sign bit
+    - in case we didn't already wanted to k*ll ourselves after this, let's do an actual example
+      representing a number in IEEE standard floating point
+        x = 2345678.7109375
+        I'll skip the calculations because they are FUCKING ASS:
+            2345678 = 0x23CACE
+            0.7109375 = 0.10110110 = 0x0.B6
+            x = 2345678.7109375 = 0010 0011 1100 1010 1100 1100 . 1011 0110
+                                = 1.0 0011 1100 1010 1100 1110 1011 0110 * 2^21
+            
+            fraction: 0001 1110 0101 0110 0111 010 | 1 1011 0 <- truncated: will not fit
+            exponent: 21 + 127 = 148 = 1001 0100
+            sign: 0
+            x -> float = 0 | 1001 0100 | 0001 1110 0101 0110 0111 010
+                       = 0100 1010 0000 1111 0010 1011 0011 1010
+                       = 0x4A0F2B3A

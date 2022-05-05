@@ -1,0 +1,37 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LEN",
+					"strict" : false
+				},
+				{
+					"name" : "REN",
+					"strict" : false
+				},
+				{
+					"name" : "LDIR",
+					"strict" : false
+				},
+				{
+					"name" : "RDIR",
+					"strict" : false
+				},
+				{
+					"name" : "COLL",
+					"strict" : false
+				},
+				{
+					"name" : "LEFT",
+					"strict" : false
+				},
+				{
+					"name" : "RIGHT",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

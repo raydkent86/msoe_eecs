@@ -1,0 +1,95 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ce1911/homework/hw5/simulation/modelsim
+Eshiftreg_lr_12_nbit
+Z1 w1648229501
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z5 8C:/ce1911/homework/hw5/shiftreg_lr_12_nbit.vhdl
+Z6 FC:/ce1911/homework/hw5/shiftreg_lr_12_nbit.vhdl
+l0
+L21 1
+VKaKI>cc69ce4mfCN?9BbN3
+!s100 Og4Fd[ez;AYh8TQLKG2?[1
+Z7 OV;C;2020.1;71
+33
+Z8 !s110 1648231308
+!i10b 1
+Z9 !s108 1648231308.000000
+Z10 !s90 -reportprogress|300|-2008|-work|work|C:/ce1911/homework/hw5/shiftreg_lr_12_nbit.vhdl|
+Z11 !s107 C:/ce1911/homework/hw5/shiftreg_lr_12_nbit.vhdl|
+!i113 1
+Z12 o-2008 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+DEx4 work 19 shiftreg_lr_12_nbit 0 22 KaKI>cc69ce4mfCN?9BbN3
+!i122 0
+l40
+L38 32
+V^B853Z:Sc2][Ac;FF^kRZ3
+!s100 SJ;mo5UPJjCVXkZf]>o3:2
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eshiftreg_lr_12_nbit_tb
+Z14 w1648230038
+R3
+R4
+!i122 1
+R0
+Z15 8C:/ce1911/homework/hw5/shiftreg_lr_12_nbit_tb.vhdl
+Z16 FC:/ce1911/homework/hw5/shiftreg_lr_12_nbit_tb.vhdl
+l0
+L22 1
+VY9H8`PC[3zBY:R<A_o[NB0
+!s100 :Mgg@9:Jg3f@c:`i:I8F@2
+R7
+33
+Z17 !s110 1648231309
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|-2008|-work|work|C:/ce1911/homework/hw5/shiftreg_lr_12_nbit_tb.vhdl|
+!s107 C:/ce1911/homework/hw5/shiftreg_lr_12_nbit_tb.vhdl|
+!i113 1
+R12
+R13
+Atestbench
+R3
+R4
+DEx4 work 22 shiftreg_lr_12_nbit_tb 0 22 Y9H8`PC[3zBY:R<A_o[NB0
+!i122 1
+l58
+L31 102
+V:RYm7;HFi?Sb<F>Vi0D<81
+!s100 WQ6o5mV3I<`OSXX[:i31`0
+R7
+33
+R17
+!i10b 1
+R9
+R18
+Z19 !s107 C:/ce1911/homework/hw5/shiftreg_lr_12_nbit_tb.vhdl|
+!i113 1
+R12
+R13

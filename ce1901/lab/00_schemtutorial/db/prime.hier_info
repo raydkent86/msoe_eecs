@@ -1,0 +1,7 @@
+|prime
+PRIME <= inst.DB_MAX_OUTPUT_PORT_TYPE
+C => inst.IN0
+A => inst2.IN0
+B => inst1.IN1
+
+

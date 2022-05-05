@@ -1,0 +1,71 @@
+library ieee; 
+use ieee.std_logic_1164.all; 
+ 
+entity LW10 is  
+port( BCLR: in std_logic_vector(3 downto 0); 
+      RDIR: <<complete>> 
+  REN: <<complete>> 
+  LEN: <<complete>> 
+  LDIR: <<complete>> 
+  BEEP: <<complete>> 
+  HEX5: out std_logic_vector(<<complete>>); 
+  HEX4: <<complete>> 
+  HEX3: <<complete>> 
+  HEX2: <<complete>> 
+  HEX1: <<complete>> 
+  HEX0: <<complete>> 
+end entity LW10; 
+ 
+architecture STRUCTURAL of LW10 is  
+  -- assign signals to DE10 Lite pins 
+  attribute chip_pin : string; 
+ 
+      -- B is toggle switch SW0. C=collision, L=left, R = right 
+  attribute chip_pin of BCLR : signal is "C10,AB17,AA12,AA17"; 
+  attribute chip_pin of RDIR : signal is "AB9"; 
+  attribute chip_pin of REN  : <<complete>> 
+  attribute chip_pin of LEN  : <<complete>> 
+  attribute chip_pin of LDIR : <<complete>> 
+  attribute chip_pin of BEEP : <<complete>> 
+  attribute chip_pin of HEX5 : signal is 
+    "L19,N20,N19,M20,N18,L18,K20,J10"; 
+  attribute chip_pin of HEX4 : signal is 
+     "<<complete>>"; 
+  attribute chip_pin of HEX3 : signal is 
+     "<<complete>>"; 
+  attribute chip_pin of HEX2 : signal is 
+     "<<complete>>"; 
+  attribute chip_pin of HEX1 : signal is 
+     "<<complete>>";   
+  attribute chip_pin of HEX0 : signal is 
+     "<<complete>>"; 
+   
+  signal HEX5CTRL: std_logic_vector(5 downto 0); 
+  <<complete>> 
+   
+begin
+U6: entity work.controller  
+  port map(  BCLR => BCLR,  
+      RDIR => RDIR, 
+      REN => REN, 
+      LEN => LEN, 
+      LDIR => LDIR,  
+      BEEP => BEEP, 
+      HEX5CTRL => HEX5CTRL, 
+      <<complete>>); 
+             
+  U5: entity work.seg7decode  
+  port map(  A => HEX5CTRL,  
+          SEG => HEX5); 
+            
+  U4: <<complete>> 
+            
+  U3: <<complete>> 
+            
+  U2: <<complete>> 
+ 
+  U1: <<complete>> 
+            
+  U0: <<complete>> 
+            
+end architecture STRUCTURAL

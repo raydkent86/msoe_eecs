@@ -1,0 +1,8 @@
+
+**** Build of configuration Debug for project lab04_pwm ****
+
+"C:\\ti\\ccs1100\\ccs\\utils\\bin\\gmake" -k -j 8 all -O 
+ 
+gmake[1]: 'lab04_pwm.out' is up to date.
+
+**** Build Finished ****

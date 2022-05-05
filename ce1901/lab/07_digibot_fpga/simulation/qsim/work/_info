@@ -1,0 +1,80 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ce1901/lab/07_digibot_fpga/simulation/qsim
+vdigibotfpga
+Z1 !s110 1643145238
+!i10b 1
+!s100 1gSal[]:Rzc_Cjj4P5b@>2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IfoB5ITASOkkTjkKz9V7P@0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1643145235
+Z5 8digibotfpga.vo
+Z6 Fdigibotfpga.vo
+!i122 8
+L0 32 324
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1643145238.000000
+Z9 !s107 digibotfpga.vo|
+Z10 !s90 -work|work|digibotfpga.vo|
+!i113 1
+Z11 o-work work
+Z12 tCvgOpt 0
+vdigibotfpga_vlg_vec_tst
+R1
+!i10b 1
+!s100 cE1X_?Wkk8PE0G0K`@eNJ3
+R2
+IgE`7_P]WFZ1U[Ygg=EeIz2
+R3
+R0
+w1643145234
+8Waveform1.vwf.vt
+FWaveform1.vwf.vt
+!i122 9
+L0 30 52
+R7
+r1
+!s85 0
+31
+R8
+!s107 Waveform1.vwf.vt|
+!s90 -work|work|Waveform1.vwf.vt|
+!i113 1
+R11
+R12
+vhard_block
+R1
+!i10b 1
+!s100 V>;dzaTFcaMfI[_k^nVg11
+R2
+I[iCLb`8T?NiZV7V==CEA40
+R3
+R0
+R4
+R5
+R6
+!i122 8
+L0 357 45
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12

@@ -1,0 +1,24 @@
+BRIEF HISTORY OF COMPUTING
+* before computers, we had slide rules and abacuses
+* early computing started with Harvard Mk1, then ENIAC, using vacuum tubes
+* then came mini-computers, and then the TRS-80 (the Trash-80), the Apple II, and the Commodore P.E.T.
+* things didn't take off until 1981, however, when IBM built the IBM PC
+    * IBM spent as much money developing software as the actual computer, so it exploded beyond recognition
+    * The economic boom under Reagan allowed EVERYONE to buy these things, and it had a whole 4 KB of RAM
+* now, we have tablets and smartphones and smartwatches and smarteverything these days
+
+TERMINOLOGY
+    general-purpose processor: intended to run end-user-selected programs
+        * application-independent and user-programmable
+        * 32/64 bit operations
+        * supports non-time-sharing operating systems (doesn't block when something isn't done)
+    embedded processor:
+        * 4/8/16/32-bit operations
+        * supports real-time operating systems
+        * simple memory and CPU structures and memory-mapped I/O
+        * wide range of peripheral support
+        * over 90% of the market share is ARM architecture
+    reduced instruction set computer (RISC): dominant processor architecture with very simple instructions
+    Harvard architecture: memory architecture with separate data and instruction memories
+    modified Harvard architecture: more common variant of Harvard architecture with upper-level shared memory
+                                   to cache stuff for better performance

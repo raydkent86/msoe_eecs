@@ -1,0 +1,61 @@
+# Reading pref.tcl
+# do hw8_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -2008 -work work {C:/ce1911/homework/hw8/color_fsm.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:51:48 on Apr 11,2022
+# vcom -reportprogress 300 -2008 -work work C:/ce1911/homework/hw8/color_fsm.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity color_fsm
+# -- Compiling architecture behavioral of color_fsm
+# End time: 20:51:48 on Apr 11,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -2008 -work work {C:/ce1911/homework/hw8/color_fsm_tb.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:51:49 on Apr 11,2022
+# vcom -reportprogress 300 -2008 -work work C:/ce1911/homework/hw8/color_fsm_tb.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity color_fsm_tb
+# -- Compiling architecture behavioral of color_fsm_tb
+# End time: 20:51:49 on Apr 11,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  color_fsm_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" color_fsm_tb 
+# Start time: 20:51:49 on Apr 11,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.color_fsm_tb(behavioral)
+# Loading work.color_fsm(behavioral)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 1000 ns
+add wave -position insertpoint sim:/color_fsm_tb/*
+add wave -position insertpoint  \
+sim:/color_fsm_tb/DUT/color
+restart -f
+run
+# End time: 21:18:51 on Apr 11,2022, Elapsed time: 0:27:02
+# Errors: 0, Warnings: 0

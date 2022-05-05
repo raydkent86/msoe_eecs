@@ -1,0 +1,55 @@
+# Reading pref.tcl
+# do W3Lab_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -2008 -work work {C:/ce1911/lab/03_synchronoushdl/counter_sat_oe_nbit.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:03:39 on Mar 23,2022
+# vcom -reportprogress 300 -2008 -work work C:/ce1911/lab/03_synchronoushdl/counter_sat_oe_nbit.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity counter_sat_oe_nbit
+# -- Compiling architecture behavioral of counter_sat_oe_nbit
+# End time: 10:03:39 on Mar 23,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -2008 -work work {C:/ce1911/lab/03_synchronoushdl/counter_sat_oe_nbit_tb.vhdl}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:03:39 on Mar 23,2022
+# vcom -reportprogress 300 -2008 -work work C:/ce1911/lab/03_synchronoushdl/counter_sat_oe_nbit_tb.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity counter_sat_oe_nbit_tb
+# -- Compiling architecture testbench of counter_sat_oe_nbit_tb
+# End time: 10:03:39 on Mar 23,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  counter_sat_oe_nbit_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" counter_sat_oe_nbit_tb 
+# Start time: 10:03:39 on Mar 23,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.counter_sat_oe_nbit_tb(testbench)
+# Loading ieee.numeric_std(body)
+# Loading work.counter_sat_oe_nbit(behavioral)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 600 ns
+# End time: 10:11:52 on Mar 23,2022, Elapsed time: 0:08:13
+# Errors: 0, Warnings: 0

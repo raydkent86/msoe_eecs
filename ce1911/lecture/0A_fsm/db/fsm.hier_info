@@ -1,0 +1,18 @@
+|sumo_ex
+i_clk => state~1.DATAIN
+i_rstb => state~3.DATAIN
+i_ir => state_next.DATAA
+i_ir => state_next.DATAA
+i_line => state_next.OUTPUTSELECT
+i_line => state_next.OUTPUTSELECT
+i_line => state_next.stop.DATAA
+o_motr[0] <= o_motr.DB_MAX_OUTPUT_PORT_TYPE
+o_motr[1] <= o_motr.DB_MAX_OUTPUT_PORT_TYPE
+o_motr[2] <= o_motr.DB_MAX_OUTPUT_PORT_TYPE
+o_motr[3] <= o_motr.DB_MAX_OUTPUT_PORT_TYPE
+o_motl[0] <= o_motl.DB_MAX_OUTPUT_PORT_TYPE
+o_motl[1] <= o_motl.DB_MAX_OUTPUT_PORT_TYPE
+o_motl[2] <= o_motl.DB_MAX_OUTPUT_PORT_TYPE
+o_motl[3] <= o_motl.DB_MAX_OUTPUT_PORT_TYPE
+
+

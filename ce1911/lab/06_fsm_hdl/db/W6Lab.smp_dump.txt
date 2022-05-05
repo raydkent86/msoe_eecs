@@ -1,0 +1,10 @@
+
+State Machine - |stoplight_advanced_fsm_de10|stoplight_advanced_fsm:DUT|state
+Name state.YR state.GR state.RY state.RG state.FAIL state.MAINT state.RR 
+state.RR 0 0 0 0 0 0 0 
+state.MAINT 0 0 0 0 0 1 1 
+state.FAIL 0 0 0 0 1 0 1 
+state.RG 0 0 0 1 0 0 1 
+state.RY 0 0 1 0 0 0 1 
+state.GR 0 1 0 0 0 0 1 
+state.YR 1 0 0 0 0 0 1 

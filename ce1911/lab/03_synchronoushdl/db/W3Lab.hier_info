@@ -1,0 +1,15 @@
+|counter_sat_3bit
+i_clk => cnt_sig[0].CLK
+i_clk => cnt_sig[1].CLK
+i_clk => cnt_sig[2].CLK
+i_rstb => cnt_sig[0].ACLR
+i_rstb => cnt_sig[1].ACLR
+i_rstb => cnt_sig[2].ACLR
+i_dir => cnt_sig.OUTPUTSELECT
+i_dir => cnt_sig.OUTPUTSELECT
+i_dir => cnt_sig.OUTPUTSELECT
+o_cnt[0] << cnt_sig[0].DB_MAX_OUTPUT_PORT_TYPE
+o_cnt[1] << cnt_sig[1].DB_MAX_OUTPUT_PORT_TYPE
+o_cnt[2] << cnt_sig[2].DB_MAX_OUTPUT_PORT_TYPE
+
+

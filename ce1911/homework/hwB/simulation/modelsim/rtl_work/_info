@@ -1,0 +1,97 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ce1911/homework/hwB/simulation/modelsim
+Erom_64k_x16_tb
+Z1 w1650590178
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z5 8C:/ce1911/homework/hwB/rom_64k_x16_tb.vhdl
+Z6 FC:/ce1911/homework/hwB/rom_64k_x16_tb.vhdl
+l0
+L17 1
+VnX>ohhODXDE29fHdQJ8JO1
+!s100 W0KIcdz37PV9g;Xg8bjCo1
+Z7 OV;C;2020.1;71
+33
+Z8 !s110 1650590599
+!i10b 1
+Z9 !s108 1650590599.000000
+Z10 !s90 -reportprogress|300|-2008|-work|work|C:/ce1911/homework/hwB/rom_64k_x16_tb.vhdl|
+!s107 C:/ce1911/homework/hwB/rom_64k_x16_tb.vhdl|
+!i113 1
+Z11 o-2008 -work work
+Z12 tExplicit 1 CvgOpt 0
+Atestbench
+R2
+R3
+R4
+DEx4 work 14 rom_64k_x16_tb 0 22 nX>ohhODXDE29fHdQJ8JO1
+!i122 1
+l38
+L21 53
+VcTn755o?ohEP6?mD6=?H?2
+!s100 >[2M?<6kD]EzEDY8<P]ll1
+R7
+33
+R8
+!i10b 1
+R9
+R10
+Z13 !s107 C:/ce1911/homework/hwB/rom_64k_x16_tb.vhdl|
+!i113 1
+R11
+R12
+Erom_64k_x16_v2
+Z14 w1650589932
+Z15 DPx9 altera_mf 20 altera_mf_components 0 22 HVLmIbRl@QhXfWVOmhK<j1
+R3
+R4
+!i122 0
+R0
+Z16 8C:/ce1911/homework/hwB/rom_64k_x16_v2.vhd
+Z17 FC:/ce1911/homework/hwB/rom_64k_x16_v2.vhd
+l0
+L43 1
+VcWe=jRFH@zIZO]U^^l?1S1
+!s100 oIzhfYh9koV[L0Ic]RlCT3
+R7
+33
+Z18 !s110 1650590598
+!i10b 1
+Z19 !s108 1650590598.000000
+Z20 !s90 -reportprogress|300|-2008|-work|work|C:/ce1911/homework/hwB/rom_64k_x16_v2.vhd|
+Z21 !s107 C:/ce1911/homework/hwB/rom_64k_x16_v2.vhd|
+!i113 1
+R11
+R12
+Asyn
+R15
+R3
+R4
+DEx4 work 14 rom_64k_x16_v2 0 22 cWe=jRFH@zIZO]U^^l?1S1
+!i122 0
+l57
+L53 33
+VcE7@6Dfa7Vj[]<6]=I;b]1
+!s100 [Ej^=P2^BAXdnT?OnXl5g3
+R7
+33
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R11
+R12

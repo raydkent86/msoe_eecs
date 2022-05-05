@@ -1,0 +1,69 @@
+# Reading pref.tcl
+# do W6Lab_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -2008 -work work {C:/ce1911/lab/06_fsm_hdl/SEG7DECODE.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:51:57 on Apr 18,2022
+# vcom -reportprogress 300 -2008 -work work C:/ce1911/lab/06_fsm_hdl/SEG7DECODE.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SEG7DECODE
+# -- Compiling architecture MULTIPLEXER of SEG7DECODE
+# End time: 09:51:57 on Apr 18,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work work {C:/ce1911/lab/06_fsm_hdl/stoplight_advanced_fsm.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:51:58 on Apr 18,2022
+# vcom -reportprogress 300 -2008 -work work C:/ce1911/lab/06_fsm_hdl/stoplight_advanced_fsm.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity stoplight_advanced_fsm
+# -- Compiling architecture behavioral of stoplight_advanced_fsm
+# End time: 09:51:58 on Apr 18,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -2008 -work work {C:/ce1911/lab/06_fsm_hdl/stoplight_advanced_fsm_tb.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:51:58 on Apr 18,2022
+# vcom -reportprogress 300 -2008 -work work C:/ce1911/lab/06_fsm_hdl/stoplight_advanced_fsm_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity stoplight_advanced_fsm_tb
+# -- Compiling architecture testbench of stoplight_advanced_fsm_tb
+# End time: 09:51:58 on Apr 18,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  stoplight_advanced_fsm_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" stoplight_advanced_fsm_tb 
+# Start time: 09:51:58 on Apr 18,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.stoplight_advanced_fsm_tb(testbench)
+# Loading ieee.numeric_std(body)
+# Loading work.stoplight_advanced_fsm(behavioral)
+# Loading work.seg7decode(multiplexer)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 5000 ns
+add wave -position insertpoint  \
+sim:/stoplight_advanced_fsm_tb/DUT/state
+restart -f
+run

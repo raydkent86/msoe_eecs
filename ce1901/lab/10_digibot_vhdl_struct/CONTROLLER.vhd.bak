@@ -1,0 +1,64 @@
+-- ensure VHDL 2008 is selected in Quartus menu Assignments:Settings:Compiler Settings:VHDL Input 
+-- include ieee standard logic signal library  
+library ieee; 
+use ieee.std_logic_1164.all;
+
+-- describe the functional block diagram symbol 
+-- use the system diagram on page 3 to help you identify signals, signal busses, and bus widths 
+entity CONTROLLER is  
+		port(
+			BCLR: in std_logic_vector(3 downto 0); 
+			RDIR: out std_logic;
+			REN: out std_logic;
+			LEN: out std_logic;
+			LDIR: out std_logic;
+			BEEP: out std_logic;
+			HEX5CTRL: out std_logic_vector(5 downto 0); 
+			HEX4CTRL: out std_logic_vector(5 downto 0);
+			HEX3CTRL: out std_logic_vector(5 downto 0);
+			HEX2CTRL: out std_logic_vector(5 downto 0);
+			HEX1CTRL: out std_logic_vector(5 downto 0);
+			HEX0CTRL: out std_logic_vector(5 downto 0)
+		); 
+end entity CONTROLLER;
+ 
+-- describe signals and vectors using multiplexer with-select syntax 
+architecture MULTIPLEXER of CONTROLLER is  
+begin  
+ 
+  with BCLR select  
+  RDIR <= '1' when X"1”|X”3”|X”9”|X”B”,  
+          '0' when others; -- don't cares and logic-0 
+        
+  with BCLR select  
+  REN <= <<complete>> 
+     
+  with BCLR select  
+  LEN <= <<complete>> 
+     
+  with BCLR select  
+  LDIR <= <<complete>> 
+ 
+  with BCLR select 
+  BEEP <= <<complete>> 
+     
+  with BCLR select  
+  HEX5CTRL <=  6X"24" when X"2"|X"3", 
+          6X"1C" when X"9"|X"A", 
+    6X"3F" when others; 
+   
+  with CLR select  
+  HEX4CTRL <= <<complete>> 
+              
+  with CLR select  
+  HEX3CTRL <=  <<complete>> 
+           
+  with CLR select  
+  HEX2CTRL <= <<complete>> 
+           
+  with CLR select  
+  HEX1CTRL <= <<complete>> 
+           
+  with CLR select  
+  HEX0CTRL <= <<complete>> 
+end architecture MULTIPLEXER;

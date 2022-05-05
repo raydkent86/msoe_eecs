@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue Feb 08 15:25:37 2022
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : digibot7segvhdl
+Top-level Entity Name : digibot7segvhdl
+Family : MAX 10
+Total logic elements : 13
+    Total combinational functions : 13
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 55
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

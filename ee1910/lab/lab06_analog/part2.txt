@@ -1,0 +1,80 @@
+/*
+ * part2.c
+ *
+ *  Created on: Jan 19, 2022
+ *      Author: bailey-waltzo
+ ***************************************
+ * EE 1910 LAB 6 PROGRAM 2
+ * Owen Bailey
+ * Program to read photodetector value
+ * and print the percentage value of
+ * light based on the voltage reading
+ *
+ * INPUTS:  Voltage between a resistor
+ *          of known value and a
+ *          photodetector with resistance
+ *          changing based on light
+ * OUTPUTS: Percent light above the
+ *          photodetector
+ ***************************************/
+
+#include <stdio.h>
+#include "msp.h"
+
+// define voltage read values for 0% light and 100% light
+#define DARK 3540
+#define LIGHT 1410
+
+// function prototypes
+int adc0_setup(void);
+int adc0_convert(void);
+
+void main(void)
+{
+    // splash
+    printf(" !! EE 1910 LAB 6 PROGRAM 2 !!\n");
+    adc0_setup();
+
+    // declarations
+    int read;
+    int pct;
+
+    // infinite loop
+    while (1)
+    {
+        read = adc0_convert();
+        // printf("%d\n", read);
+        pct = (read - DARK) * 100 / (LIGHT - DARK);
+        printf("%d%%\n", pct);
+    }
+}
+
+// setup A0 at pin 30 for A/D conversion
+int adc0_setup(void)
+{
+    P5->SEL0 |= 0x20; // select alternate mode 11
+    P5->SEL1 |= 0x20;
+    P5->DIR &= ~0x20; // input
+    P5->REN &= ~0x20;
+
+    // enable A0 pin
+    ADC14->CTL0 = 0x04000210;   // S/H timer, 16clk S/H, ADC ON
+    ADC14->CTL1 = 0x00000020;   // 12-bit conversion
+    ADC14->MCTL[0] = 0x00000000; // Vref = AVCC
+
+    return 0;
+}
+
+int adc0_convert(void)
+{
+    // start sampling
+    ADC14->CTL0|= 0x00000003; // enable ADC, start conversion
+
+    // wait for conversion to complete
+    while (!ADC14->IFGR0)
+    {
+        ;
+    }
+
+    return ADC14->MEM[0];
+}

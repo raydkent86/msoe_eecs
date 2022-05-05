@@ -1,0 +1,111 @@
+----------------------------------------
+-- created 04/11/2022
+-- Owen Bailey - CE 1911 011
+-- Dr. Johnson
+-- rom_64k_x16_tb.vhdl
+-- rev 0
+----------------------------------------
+--
+-- testbench for HDL ROM homework
+-- brute force
+----------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity rom_64k_x16_tb is
+	-- no entry - testbench
+end entity;
+
+architecture testbench of rom_64k_x16_tb is
+	signal CLK: std_logic;
+	signal ADDR: std_logic_vector(7 downto 0);
+	signal DATA: std_logic_vector(15 downto 0);
+	
+	constant PER: time := 20 ns;
+	
+	-- component prototype
+	component color_fsm is
+	port
+	(
+		i_clk: in std_logic;
+		i_rstb: in std_logic;
+		i_din: in std_logic;
+		
+		o_detect: out std_logic
+	);
+	end component;
+	
+	begin
+		-- device under test
+		DUT: color_fsm
+		port map
+		(
+			i_clk => CLK,
+			i_rstb => RSTB,
+			i_din => DIN,
+			o_detect => DETECT
+		);
+		
+		-- clock process
+		clock: process
+		begin
+			-- initialize
+			CLK <= '0';
+			
+			-- infinite l00p
+			loop
+				wait for PER/2;
+				CLK <= not CLK;
+			end loop;
+		end process;
+		
+		-- reset process
+		reset: process
+		begin
+			-- initialize
+			RSTB <= '0';
+			
+			wait for PER * 2;
+			
+			RSTB <= '1';
+			
+			-- wait forever
+			wait;
+		end process;
+		
+		-- run process
+		run: process
+		begin
+			-- initialize input
+			DIN <= '0';
+			
+			-- wait for reset;
+			wait for 3 * PER;
+			
+			-- variations on input
+			DIN <= '0'; -- to red
+			wait for 3 * PER;
+			DIN <= '1'; -- to green
+			wait for 5 * PER;
+			DIN <= '0'; -- to yellow
+			wait for 1 * PER;
+			DIN <= '1'; -- to orange
+			wait for 1 * PER;
+			DIN <= '0'; -- to blue
+			wait for 1 * PER;
+			DIN <= '1'; -- to yellow
+			wait for 1 * PER;
+		end process;
+end architecture;
+
+
+component rom_64k_x16 IS
+	PORT
+	(
+		address		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		clock		: IN STD_LOGIC  := '1';
+		q		: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+	);
+END component;

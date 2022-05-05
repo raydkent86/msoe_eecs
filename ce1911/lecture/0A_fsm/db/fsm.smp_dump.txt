@@ -1,0 +1,7 @@
+
+State Machine - |sumo_ex|state
+Name state.spin state.stop state.attack state.search 
+state.search 0 0 0 0 
+state.attack 0 0 1 1 
+state.stop 0 1 0 1 
+state.spin 1 0 0 1 

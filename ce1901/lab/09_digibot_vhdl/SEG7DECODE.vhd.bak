@@ -1,0 +1,32 @@
+-- NAME: Owen Bailey
+-- COURSE AND SECTION: CE 1901 031
+-- FILE: CONTROLLER.vhd
+-- DESCRIPTION: Implements a motion controller for the Digibot using muxes
+
+-- include ieee standard logic signal library  
+library ieee; 
+use ieee.std_logic_1164.all
+
+-- describe the functional block diagram symbol 
+entity SEG7DECODE is  
+	port(
+		A: in std_logic_vector(5 downto 0);  
+		SEG: out <<complete>>
+	); 
+end entity SEG7DECODE; 
+
+-- describe signals and vectors using multiplexer with-select syntax 
+architecture MULTIPLEXER of SEG7DECODE is  
+begin  
+
+		with A select  
+			SEG <= 	8X”C0” when 6X”00”,  
+						8X”F9” when 6X”01”,  
+						8X”A4” when 6X”02”, 
+						8X”B0” when 6X”03”, 
+						8X”99” when 6X”04”, 
+						<<complete many, many lines>>  
+						8X”7F” when 6X”26”, 
+						8X”FF” when others; 
+ 
+end architecture MULTIPLEXER

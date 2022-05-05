@@ -1,0 +1,10 @@
+|identicaloutsidexor
+DIFF_IDENT_PIN08 <= inst3.DB_MAX_OUTPUT_PORT_TYPE
+PIN00 => inst1.IN0
+PIN00 => inst4.IN0
+PIN01 => inst5.IN0
+PIN01 => inst.IN1
+PIN02 => inst1.IN2
+PIN02 => inst6.IN0
+
+

@@ -1,0 +1,24 @@
+-- NAME: Owen Bailey
+-- COURSE AND SECTION: CE 1901 031
+-- FILE: ORBFA.vhd
+-- DESCRIPTION: Implements a full adder using a with-select statement
+
+-- include IEEE standard logic signal library
+library ieee;
+use ieee.std_logic_1164.all;
+
+-- describe full adder symbol
+entity ORBFA is
+	port(
+		A, B: in std_logic; -- input bits
+		S: out std_logic; -- sum
+		COUT: out std_logic -- carry out
+	);
+end entity ORBFA;
+
+-- describe signal path using dataflow equation
+architecture MULTIPLEXER of ORBFA is
+	begin
+		S <= A xor B;
+		COUT <= A and B;
+	end architecture MULTIPLEXER;

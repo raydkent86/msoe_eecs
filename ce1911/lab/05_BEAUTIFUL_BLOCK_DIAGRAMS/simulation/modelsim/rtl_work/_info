@@ -1,0 +1,93 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/simulation/modelsim
+Ecounter_gray_3bit
+Z1 w1649657168
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8C:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit.vhd
+Z5 FC:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit.vhd
+l0
+L25 1
+VG@CPfoNL27^;bfYdhACPM2
+!s100 zP@fi4HhAiQg3Cg[<AoWD2
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1649698534
+!i10b 1
+Z8 !s108 1649698533.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit.vhd|
+Z10 !s107 C:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Abdf_type
+R2
+R3
+DEx4 work 17 counter_gray_3bit 0 22 G@CPfoNL27^;bfYdhACPM2
+!i122 0
+l55
+L35 103
+VdVZPX9jAlHa5NU=4U:HXU0
+!s100 a7kCeW7VU`mE5k3fH[Pe51
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Ecounter_gray_3bit_tb
+Z13 w1649654764
+R2
+R3
+!i122 1
+R0
+Z14 8C:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit_tb.vhdl
+Z15 FC:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit_tb.vhdl
+l0
+L18 1
+VBELl8BRWYU6j;AY0Cm_nY3
+!s100 N>KQW?[QVoUj@A2;XhMR]1
+R6
+31
+R7
+!i10b 1
+Z16 !s108 1649698534.000000
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit_tb.vhdl|
+!s107 C:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit_tb.vhdl|
+!i113 1
+R11
+R12
+Atestbench
+R2
+R3
+DEx4 work 20 counter_gray_3bit_tb 0 22 BELl8BRWYU6j;AY0Cm_nY3
+!i122 1
+l45
+L22 72
+Veo7eRNRESA71JfY3J`o9Z0
+!s100 :VL?7RD81DXAZ`ZO:_hI?3
+R6
+31
+R7
+!i10b 1
+R16
+R17
+Z18 !s107 C:/ce1911/lab/05_BEAUTIFUL_BLOCK_DIAGRAMS/counter_gray_3bit_tb.vhdl|
+!i113 1
+R11
+R12

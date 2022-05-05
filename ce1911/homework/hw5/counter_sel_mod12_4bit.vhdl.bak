@@ -1,0 +1,46 @@
+--
+-- created 03/25/2022
+-- Owen Bailey - CE 1911 011
+-- Dr. Johnson
+-- counter_sel_mod12_4bit.vhdl
+-- rev 0
+----------------------------------------
+--
+-- 4 bit counter with mod12 mode for hw
+-- problem
+----------------------------------------
+--
+-- Inputs: rstb, clk, mode
+-- Outputs: cnt[3:0]
+----------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity counter_sel_mod12_4bit is
+	port
+	(
+		i_clk: in std_logic;
+		i_rstb: in std_logic;
+		i_din: in std_logic;
+		i_set: in std_logic;
+		o_q: out std_logic
+	);
+end entity;
+
+architecture behavioral of dffwS is
+begin
+	process(i_clk, i_rstb, i_set)
+	begin
+		if (i_rstb = '0') then
+			o_q <= '0';
+		elsif (rising_edge(i_clk)) then
+			if (i_set = '1') then
+				o_q <= '1';
+			else
+				o_q <= i_din;
+			end if;
+		end if;
+	end process;
+end architecture;

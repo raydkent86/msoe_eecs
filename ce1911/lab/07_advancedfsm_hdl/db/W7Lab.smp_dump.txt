@@ -1,0 +1,7 @@
+
+State Machine - |vending_machine_fsm_de10|vending_machine_fsm:DUT|state
+Name state.CANCEL state.INSUFF state.VEND state.IDLE 
+state.IDLE 0 0 0 0 
+state.VEND 0 0 1 1 
+state.INSUFF 0 1 0 1 
+state.CANCEL 1 0 0 1 

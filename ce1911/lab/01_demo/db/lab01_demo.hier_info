@@ -1,0 +1,14 @@
+|orblatch_bdf_de10
+SW[0] => orblatch_bdf:design.i_clk
+SW[1] => orblatch_bdf:design.i_d
+LEDR[0] << orblatch_bdf:design.o_q
+
+
+|orblatch_bdf_de10|orblatch_bdf:design
+i_clk => SYNTHESIZED_WIRE_2.IN0
+i_clk => SYNTHESIZED_WIRE_3.IN0
+i_d => SYNTHESIZED_WIRE_3.IN1
+i_d => SYNTHESIZED_WIRE_2.IN1
+o_q <= o_q.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,20 @@
+---- NAME: Owen Bailey
+---- COURSE AND SECTION: CE 1901 031
+---- FILE: PG_Gen.vhd
+---- DESCRIPTION: Implements a carry calculator for a look-ahead adder
+--
+--entity PG_GEN is
+--	port(
+--		A: in std_logic; -- first operand in adder
+--		B: in std_logic; -- second operand in adder
+--		G: out std_logic; -- generate
+--		P: out std_logic -- propagate
+--	);
+--end entity PG_GEN;
+--
+---- define values for generate and propagate terms
+--architecture DATAFLOW of PG_GEN is
+--	begin
+--		G <= A and B;
+--		P <= A or B;
+--	end architecture DATAFLOW;

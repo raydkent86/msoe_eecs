@@ -1,0 +1,15 @@
+-- NAME: Owen Bailey
+-- COURSE AND SECTION: CE 1901 031
+-- FILE: ORBHA.vhd
+-- DESCRIPTION: Implements a half adder using a dataflow equation
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ORBHA is
+	port(
+		A, B: in std_logic;
+		S, COUT: out std_logic
+	);
+end entity ORBHA
+		
