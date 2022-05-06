@@ -1,8 +1,10 @@
 # msoe_eecs
-WELCOME TO OWEN BAILEY'S MSOE EECS DUMPING GROUND
-=================================================
+OWEN BAILEY'S MSOE EECS DUMPING GROUND
+--------------------------------------
 
 Collection of various MSOE EECS assignment code from various classes (and a bit from my IVC days)
+
+Classes included in this repository are listed below
 
 **EE 1910: Intro to Embedded Systems Programming**  
 Professor: Dr. Timothy Johnson  
