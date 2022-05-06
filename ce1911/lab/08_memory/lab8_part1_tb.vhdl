@@ -150,6 +150,7 @@ architecture testbench of lab8_part1_tb is
 		wait for PER * 2;
 		ADDR <= 5X"1F";
 		wait for PER * 2;
+        -- hi
 		
 	end process run;
 	
