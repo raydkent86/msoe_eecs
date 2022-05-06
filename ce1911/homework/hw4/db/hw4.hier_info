@@ -1,8 +1,0 @@
-|dffwT
-i_clk => QOUT.CLK
-i_rstb => QOUT.ACLR
-i_din => QOUT.DATAA
-i_t => QOUT.OUTPUTSELECT
-o_q << QOUT.DB_MAX_OUTPUT_PORT_TYPE
-
-
