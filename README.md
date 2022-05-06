@@ -1,6 +1,5 @@
-# msoe_eecs
 OWEN BAILEY'S MSOE EECS DUMPING GROUND
---------------------------------------
+======================================
 
 Collection of various MSOE EECS assignment code from various classes (and a bit from my IVC days)
 
