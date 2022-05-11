@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY seq_sel_fsm
+set_global_assignment -name TOP_LEVEL_ENTITY control_unit
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:57:39  MAY 04, 2022"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -67,12 +67,11 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
 set_global_assignment -name VHDL_SHOW_LMF_MAPPING_MESSAGES OFF
-set_global_assignment -name VHDL_FILE extend_sign.vhdl
 set_global_assignment -name VHDL_FILE alu8_1911.vhdl
 set_global_assignment -name VHDL_FILE reg_file_4x8b.vhdl
 set_global_assignment -name AUTO_RAM_RECOGNITION OFF
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH seq_sel_fsm_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH control_unit_tb -section_id eda_simulation
 set_global_assignment -name VHDL_FILE reg_file_4x8b_tb.vhdl
 set_global_assignment -name EDA_TEST_BENCH_NAME reg_file_4x8b_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id reg_file_4x8b_tb
@@ -96,17 +95,24 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ram_256x8_in
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1600 ns" -section_id ram_256x8_inferred_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ram_256x8_inferred_tb -section_id ram_256x8_inferred_tb
 set_global_assignment -name VHDL_FILE seq_sel_fsm.vhdl
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VHDL_FILE seq_sel_fsm_tb.vhdl
 set_global_assignment -name EDA_TEST_BENCH_NAME seq_sel_fsm_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id seq_sel_fsm_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "1600 ns" -section_id seq_sel_fsm_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME seq_sel_fsm_tb -section_id seq_sel_fsm_tb
+set_global_assignment -name VHDL_FILE control_unit.vhdl
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE control_unit_tb.vhdl
+set_global_assignment -name EDA_TEST_BENCH_NAME control_unit_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id control_unit_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "650 ns" -section_id control_unit_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME control_unit_tb -section_id control_unit_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE reg_file_4x8b_tb.vhdl -section_id reg_file_4x8b_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE alu8_1911_tb.vhdl -section_id alu8_1911_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE rom_256x16_inferred_tb.vhdl -section_id rom_256x16_inferred_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE ram_256x8_inferred_tb.vhdl -section_id ram_256x8_inferred_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE seq_sel_fsm_tb.vhdl -section_id seq_sel_fsm_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE control_unit_tb.vhdl -section_id control_unit_tb
