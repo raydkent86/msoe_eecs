@@ -84,7 +84,6 @@ architecture behavioral of proc is
     component rom_256x16_inferred is
     port
     (
-        i_clk:  in std_logic;
         i_addr: in std_logic_vector(7 downto 0);
 
         o_data: out std_logic_vector(15 downto 0)
@@ -170,7 +169,6 @@ begin
     INST_MEM: rom_256x16_inferred
     port map
     (
-        i_clk => i_clk,
         i_addr => INST_ADDR,
 
         o_data => INSTR

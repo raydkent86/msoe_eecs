@@ -24,7 +24,6 @@ use ieee.numeric_std.all;
 entity rom_256x16_inferred is
     port
     (
-        i_clk:  in std_logic;
         i_addr: in std_logic_vector(7 downto 0); -- 2^8
 
         o_data: out std_logic_vector(15 downto 0)
@@ -84,12 +83,6 @@ architecture behavioral of rom_256x16_inferred is
         others => 16X"F000"
         );
 begin
-    process(i_clk)
-    begin
-        if (rising_edge(i_clk)) then
-            o_data <= myROM(to_integer(unsigned(i_addr)));
-        end if;
-    end process;
-
+    o_data <= myROM(to_integer(unsigned(i_addr)));
     -- no other output signals - ROM
 end architecture;

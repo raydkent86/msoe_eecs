@@ -23,7 +23,6 @@ entity rom_256x16_inferred_tb is
 end entity;
 
 architecture testbench of rom_256x16_inferred_tb is
-	signal CLK: std_logic;
 	signal ADDR: unsigned(7 downto 0);
 
     signal DATA: std_logic_vector(15 downto 0);
@@ -36,7 +35,6 @@ architecture testbench of rom_256x16_inferred_tb is
 	component rom_256x16_inferred is
     port
     (
-        i_clk:  in std_logic;
         i_addr: in std_logic_vector(7 downto 0); -- 2^8
 
         o_data: out std_logic_vector(15 downto 0)
@@ -52,7 +50,6 @@ begin
 	DUT: rom_256x16_inferred
 		port map
 		(
-			i_clk => CLK,
 			i_addr => std_logic_vector(ADDR),
 			
 			o_data => DATA
@@ -62,15 +59,7 @@ begin
 	-- Test processes
 	-------------------------------------
 	
-   -- Clock process
-	clock: process		-- note - no sensitivity list allowed
-	begin
-		CLK <= '0';
-		wait for PER/2;
-		infinite: loop
-			CLK <= not CLK; wait for PER/2;
-		end loop;
-	end process;
+    -- no clock process (async)
 	
 	-- no reset process
 	
