@@ -42,29 +42,37 @@ architecture behavioral of seq_sel_fsm is
     signal state_next: STATE_TYPE;
     signal START_SIG: unsigned(7 downto 0);
     signal LOC_SIG: unsigned(7 downto 0);
+    signal LOC_NEXT: unsigned(7 downto 0);
 begin
     -- next-state logic
     process(all)
     begin
+        START_SIG <= to_unsigned((to_integer(unsigned(i_start_address))) * 32, 8);
         case state is
             when READY =>
                 if (i_start = '1') then
                     state_next <= RUN;
+                    LOC_NEXT <= START_SIG;
                 else
                     state_next <= READY;
+                    LOC_NEXT <= LOC_SIG;
                 end if;
             when RUN =>
-                if (LOC_SIG < (START_SIG + unsigned(i_len) - 2)) then
+                if (LOC_SIG < (START_SIG + unsigned(i_len) - 1)) then
                     state_next <= RUN;
+                    LOC_NEXT <= LOC_SIG + 8X"01";
                 else
                     state_next <= DONE;
+                    LOC_NEXT <= LOC_SIG;
                 end if;
             when DONE =>
                 state_next <= DONE;
+                LOC_NEXT <= LOC_SIG;
             when others =>
                 -- force reset if timing error
                 -- do NOT forget this, as leaving this out will cause latches
                 state_next <= READY;
+                LOC_NEXT <= 8X"00";
         end case;
     end process;
 
@@ -74,15 +82,10 @@ begin
         if (i_rstb = '0') then
             -- reset to ready when RSTB
             state <= READY;
+            LOC_SIG <= 8X"00";
         elsif (rising_edge(i_clk)) then
-            -- increase LOC when running
-            if (state = READY) then
-                START_SIG <= to_unsigned((to_integer(unsigned(i_start_address))) * 32, 8);
-                LOC_SIG <= START_SIG;
-            elsif (state = RUN) then
-                LOC_SIG <= LOC_SIG + 8X"01";
-            end if;
             state <= state_next;
+            LOC_SIG <= LOC_NEXT;
         end if;
     end process;
 
