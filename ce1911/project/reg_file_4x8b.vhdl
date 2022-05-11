@@ -3,7 +3,7 @@
 -- Owen Bailey - CE 1911 011
 -- Dr. Johnson
 -- rom_256_x16_inferred.vhdl
--- rev 0
+-- rev 1
 ----------------------------------------
 --
 -- Lab 9 (Project)
@@ -27,13 +27,18 @@ entity reg_file_4x8b is
     (
         i_clk:      in std_logic;
         i_we_b:     in std_logic;
-        i_addr_a:   in std_logic_vector(1 downto 0);
-        i_addr_b:   in std_logic_vector(1 downto 0);
+        i_addr1:   in std_logic_vector(1 downto 0);
+        i_addr2:   in std_logic_vector(1 downto 0);
         i_addr_W:   in std_logic_vector(1 downto 0);
         i_data_W:   in std_logic_vector(7 downto 0);
 
-        o_data_a:   out std_logic_vector(7 downto 0);
-        o_data_b:   out std_logic_vector(7 downto 0)
+        o_data1:   out std_logic_vector(7 downto 0);
+        o_data2:   out std_logic_vector(7 downto 0);
+
+        o_regA_data: out std_logic_vector(7 downto 0);
+        o_regB_data: out std_logic_vector(7 downto 0);
+        o_regC_data: out std_logic_vector(7 downto 0);
+        o_regD_data: out std_logic_vector(7 downto 0)
     );
 end entity;
 
@@ -57,7 +62,11 @@ begin
     end process;
 
     -- output logic
-    o_data_a <= reg_4x8b(to_integer(unsigned(i_addr_a)));
-    o_data_b <= reg_4x8b(to_integer(unsigned(i_addr_b)));
+    o_data1 <= reg_4x8b(to_integer(unsigned(i_addr1)));
+    o_data2 <= reg_4x8b(to_integer(unsigned(i_addr2)));
+    o_regA_data <= reg_4x8b(0);
+    o_regB_data <= reg_4x8b(1);
+    o_regC_data <= reg_4x8b(2);
+    o_regD_data <= reg_4x8b(3);
 
 end architecture;

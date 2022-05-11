@@ -2,13 +2,13 @@
 -- created 05/06/2022
 -- Owen Bailey - CE 1911 011
 -- Dr. Johnson
--- ram_256_x8_inferred.vhdl
--- rev 0
+-- ram_256x8_inferred.vhdl
+-- rev 1
 ----------------------------------------
 --
 -- Lab 9 (Project)
 -- Data Memory
--- 256-bit (32B) single-port inferred
+-- 256-word (256B) single-port inferred
 -- RAM in a x8 configuration based on
 -- the design from Lab 8
 --
@@ -21,20 +21,20 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity ram_256_x8_inferred is
+entity ram_256x8_inferred is
 	port
 	(
 		i_clk: 			in std_logic;
 		i_web:		    in std_logic; -- write-enable-not
-		i_addr:		    in std_logic_vector(4 downto 0); -- address
+		i_addr:		    in std_logic_vector(7 downto 0); -- address
 		i_data_in:	    in std_logic_vector(7 downto 0); -- data in
 		
 		o_data_out:	    out std_logic_vector(7 downto 0) -- data out
 	);
 end entity;
 
-architecture behavioral of ram_256_x8_inferred is
-	type sram_type is array (0 to 31) of std_logic_vector(7 downto 0);
+architecture behavioral of ram_256x8_inferred is
+	type sram_type is array (0 to 255) of std_logic_vector(7 downto 0);
 	signal mySRAM: sram_type;
 	begin
 		-- write process

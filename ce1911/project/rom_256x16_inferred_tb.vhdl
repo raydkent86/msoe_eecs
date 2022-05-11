@@ -2,7 +2,7 @@
 -- created 05/06/2022
 -- Owen Bailey - CE 1911 011
 -- Dr. Johnson
--- rom_256_x16_inferred_tb.vhdl
+-- rom_256x16_inferred_tb.vhdl
 -- rev 0
 ----------------------------------------
 --
@@ -18,13 +18,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity rom_256_x16_inferred_tb is
+entity rom_256x16_inferred_tb is
 	-- no entry - testbench
 end entity;
 
-architecture testbench of rom_256_x16_inferred_tb is
+architecture testbench of rom_256x16_inferred_tb is
 	signal CLK: std_logic;
-	signal ADDR: unsigned(3 downto 0);
+	signal ADDR: unsigned(7 downto 0);
 
     signal DATA: std_logic_vector(15 downto 0);
 
@@ -33,11 +33,11 @@ architecture testbench of rom_256_x16_inferred_tb is
 	--------------------------------
 	-- Component prototype
 	---------------------------------
-	component rom_256_x16_inferred is
+	component rom_256x16_inferred is
     port
     (
         i_clk:  in std_logic;
-        i_addr: in std_logic_vector(3 downto 0); -- 2^4
+        i_addr: in std_logic_vector(7 downto 0); -- 2^8
 
         o_data: out std_logic_vector(15 downto 0)
     );
@@ -49,7 +49,7 @@ begin
 	------------------------------------
 	-- Device under test (DUT)
 	------------------------------------
-	DUT: rom_256_x16_inferred
+	DUT: rom_256x16_inferred
 		port map
 		(
 			i_clk => CLK,
@@ -77,11 +77,11 @@ begin
 	-- Run Process
 	run: process
 	begin
-        ADDR <= 4X"0000";
+        ADDR <= 8X"0000";
         wait for PER * 4;
-        for I in 0 to 15 loop
-            ADDR <= ADDR + 4X"0001";
-            wait for PER * 2;
+        for I in 0 to 255 loop
+            ADDR <= ADDR + 8X"0001";
+            wait for PER * 1;
         end loop;
 	end process;
 	

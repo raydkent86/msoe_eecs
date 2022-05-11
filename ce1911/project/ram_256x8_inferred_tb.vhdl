@@ -2,7 +2,7 @@
 -- created 05/06/2022
 -- Owen Bailey - CE 1911 011
 -- Dr. Johnson
--- rom_256_x16_inferred_tb.vhdl
+-- ram_256x8_inferred_tb.vhdl
 -- rev 0
 ----------------------------------------
 --
@@ -18,14 +18,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity ram_256_x8_inferred_tb is
+entity ram_256x8_inferred_tb is
 	-- no entry - testbench
 end entity;
 
-architecture testbench of ram_256_x8_inferred_tb is
+architecture testbench of ram_256x8_inferred_tb is
 	signal CLK: std_logic;
     signal WE_B: std_logic;
-	signal ADDR: unsigned(4 downto 0);
+	signal ADDR: unsigned(7 downto 0);
     signal DATA_IN: unsigned(7 downto 0);
 
     signal DATA_OUT: std_logic_vector(7 downto 0);
@@ -35,12 +35,12 @@ architecture testbench of ram_256_x8_inferred_tb is
 	--------------------------------
 	-- Component prototype
 	---------------------------------
-	component ram_256_x8_inferred is
+	component ram_256x8_inferred is
 	port
 	(
 		i_clk: 			in std_logic;
 		i_web:		    in std_logic; -- write-enable-not
-		i_addr:		    in std_logic_vector(4 downto 0); -- address
+		i_addr:		    in std_logic_vector(7 downto 0); -- address
 		i_data_in:	    in std_logic_vector(7 downto 0); -- data in
 		
 		o_data_out:	    out std_logic_vector(7 downto 0) -- data out
@@ -53,7 +53,7 @@ begin
 	------------------------------------
 	-- Device under test (DUT)
 	------------------------------------
-	DUT: ram_256_x8_inferred
+	DUT: ram_256x8_inferred
 		port map
 		(
 			i_clk => CLK,
@@ -85,32 +85,34 @@ begin
 	begin
         -- first run: no write
         WE_B <= '1';
-        ADDR <= 5X"00";
+        ADDR <= 8X"00";
         DATA_IN <= 8X"00";
         wait for PER * 4;
-        for I in 0 to 31 loop
-            ADDR <= ADDR + 5X"01";
+        for I in 0 to 9 loop
+            ADDR <= ADDR + 8X"0C";
             wait for PER * 2;
         end loop;
         wait for PER * 4;
 
         -- second run: write
         WE_B <= '0';
-        DATA_IN <= 8X"FF";
+        ADDR <= 8X"00";
+        DATA_IN <= 8X"00";
         wait for PER * 4;
-        for I in 0 to 31 loop
-            ADDR <= ADDR + 5X"01";
-            DATA_IN <= DATA_IN + 8X"0A"; -- put some quasi-random values in
+        for I in 0 to 9 loop
+            ADDR <= ADDR + 8X"0C";
+            DATA_IN <= DATA_IN + 8X"05"; -- put some quasi-random values in
             wait for PER * 2;
         end loop;
         wait for PER * 4;
 
         -- third run: no write
         WE_B <= '1';
-        DATA_IN <= 8X"00";
+        ADDR <= 8X"00";
         wait for PER * 4;
-        for I in 0 to 31 loop
-            ADDR <= ADDR + 5X"01";
+        for I in 0 to 9 loop
+            ADDR <= ADDR + 8X"0C";
+            DATA_IN <= DATA_IN + 8X"05"; -- continue providing values to validate
             wait for PER * 2;
         end loop;
         wait for PER * 4;
