@@ -76,7 +76,7 @@ begin
         elsif (i_sel = "0110") then
             -- set if less-than
             RESULT <= unsigned(i_a) - unsigned(i_b);
-            if (RESULT(7) = '1') then
+            if (to_integer(signed(i_a)) < to_integer(signed(i_b))) then
                 o_set <= '1';
             else
                 o_set <= '0';
@@ -87,7 +87,10 @@ begin
             RESULT <= 8X"00";
             o_set <= '0';
         else
-            -- passthrough mode for all other instructions, add values
+            -- default to add for all other instructions
+            -- control unit will produce a zero in input A for cases in which
+            -- the processor's instruction bypasses the ALU (this is done so
+            -- the ALU as a whole has smaller hardware)
             RESULT <= unsigned(i_a) + unsigned(i_b);
             o_set <= '0';
         end if;
