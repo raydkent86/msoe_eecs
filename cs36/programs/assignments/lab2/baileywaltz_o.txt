@@ -1,0 +1,470 @@
+// CS36 LAB 2
+
+/************************************************
+ * Problem 1
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will determine if a person is over
+ * 18 and eligible to vote, and display the number
+ * of years until any non-eligible individual is
+ * eligible.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    int age;
+    printf("Enter the age : ");
+    scanf("%d", &age);
+
+    // logic/output
+    if (age < 18)
+        printf("You have to wait another %d years to cast your vote\n", (18 - age));
+    else
+        printf("You are already old enough to vote\n");
+    
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #1
+
+Enter the age : 10
+You have to wait another 8 years to cast your vote
+
+Enter the age : 17
+You have to wait another 1 years to cast your vote
+
+Enter the age : 12
+You have to wait another 6 years to cast your vote
+
+Enter the age : 14
+You have to wait another 4 years to cast your vote
+
+Enter the age : 19
+You are already old enough to vote */
+
+================================================================================
+
+/************************************************
+ * Problem 2
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will determine if a number is
+ * even or odd.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    int num;
+    printf("Enter any number : ");
+    scanf("%d", &num);
+
+    // logic/output
+    if (num == 0)
+        printf("Zero is neither even nor odd\n");
+    else
+        if (num % 2)
+            printf("%d is odd\n", num);
+        else
+            printf("%d is even\n", num);
+    
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #2
+Enter any number : 125
+125 is odd
+
+Enter any number : 112
+112 is even
+
+Enter any number : 191
+191 is odd
+
+Enter any number : 2
+2 is even
+
+Enter any number : 0
+Zero is neither even nor odd */
+
+================================================================================
+
+/************************************************
+ * Problem 3
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will determine if a character is
+ * a vowel (a/e/i/o/u) or a consonant.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    char c;
+    printf("Enter any character : ");
+    scanf("%c", &c);
+
+    // logic/output
+    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+        printf("%c is a vowel\n", c);
+    else
+        if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            printf("%c is a vowel\n", c);
+        else
+            printf("%c is not a vowel\n", c);
+    
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #3
+Enter any character : h
+h is not a vowel
+
+Enter any character : A
+A is a vowel
+
+Enter any character : c
+c is not a vowel
+
+Enter any character : e
+e is a vowel
+
+Enter any character : O
+O is a vowel */
+
+================================================================================
+
+/************************************************
+ * Problem 4
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will determine the type of an
+ * entered character (digit/uppercase/lowercase)
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    char c;
+    printf("Enter any character : ");
+    scanf("%c", &c);
+
+    // logic/output
+    if (c >= '0' && c <= '9')
+        printf("A number was entered\n");
+    else
+        if (c >= 'A' && c <= 'Z')
+            printf("Uppercase character was entered\n");
+        else
+            if (c >= 'a' && c <= 'z')
+                printf("Lowercase character was entered\n");
+            else
+                printf("Something else was entered\n");
+    
+    // exit
+    return 0;
+}
+
+/* OUTPUTS 4
+Enter any character : C
+Uppercase character was entered
+
+Enter any character : a
+Lowercase character was entered
+
+Enter any character : 4
+A number was entered
+
+Enter any character : z
+Lowercase character was entered
+
+Enter any character : )
+Something else was entered */
+
+================================================================================
+
+/************************************************
+ * Problem 5
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will determine if a given year is
+ * a leap year.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    int year;
+    printf("Enter any year: ");
+    scanf("%d", &year);
+
+    // logic/output
+    if ((year % 4) == 0)
+        printf("Leap Year\n");
+    else
+        printf("Not a Leap Year\n");
+    
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #5
+Enter any year: 1964
+Leap Year
+
+Enter any year: 2000
+Leap Year
+
+Enter any year: 2001
+Not a Leap Year
+
+Enter any year: 1997
+Not a Leap Year
+
+Enter any year: 11
+Not a Leap Year */
+
+================================================================================
+
+/************************************************
+ * Problem 6
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will determine if a number is
+ * positive, negative, or equal to zero.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    int num;
+    printf("Enter any number : ");
+    scanf("%d", &num);
+
+    // logic/output
+    if (num == 0)
+        printf("The number is equal to zero\n");
+    else
+        if (num < 0)
+            printf("The number is negative\n");
+        else
+            if (num > 0)
+                printf("The number is positive\n");
+            else
+                printf("Invalid\n");
+    
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #6
+Enter any number : 0
+The number is equal to zero
+
+Enter any number : 12
+The number is positive
+
+Enter any number : -2
+The number is negative
+
+Enter any number : 9
+The number is positive
+
+Enter any number : 19
+The number is positive */
+
+================================================================================
+
+/************************************************
+ * Problem 7
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will determine if a character is
+ * a vowel using a switch statement.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    char c;
+    printf("Enter any character : ");
+    scanf("%c", &c);
+
+    // logic/output
+    switch (c)
+    {
+        case 'a': case 'e': case 'i': case 'o': case 'u':
+        case 'A': case 'E': case 'I': case 'O': case 'U':
+            printf("%c is a vowel\n", c);
+            break;
+        default:
+            printf("%c is not a vowel\n", c);
+    }
+    
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #7
+Enter any character : h
+h is not a vowel
+
+Enter any character : A
+A is a vowel
+
+Enter any character : c
+c is not a vowel
+
+Enter any character : e
+e is a vowel
+
+Enter any character : O
+O is a vowel */
+
+================================================================================
+
+/************************************************
+ * Problem 8
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will take a number from 1 to 7
+ * and will display the corresponding day of the
+ * week for that number using a switch statement.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    int day;
+    printf("Enter a number from 1 to 7 : ");
+    scanf("%d", &day);
+
+    // logic/output
+    switch (day)
+    {
+        case 1:
+            printf("Monday\n");
+            break;
+        case 2:
+            printf("Tuesday\n");
+            break;
+        case 3:
+            printf("Wednesday\n");
+            break;
+        case 4:
+            printf("Thursday\n");
+            break;
+        case 5:
+            printf("Friday\n");
+            break;
+        case 6:
+            printf("Saturday\n");
+            break;
+        case 7:
+            printf("Sunday\n");
+            break;
+        default:
+            printf("Invalid\n");
+    }
+
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #8
+Enter a number from 1 to 7 : 1
+Monday
+
+Enter a number from 1 to 7 : 2
+Tuesday
+
+Enter a number from 1 to 7 : 3
+Wednesday
+
+Enter a number from 1 to 7 : 4
+Thursday
+
+Enter a number from 1 to 7 : 5
+Friday
+
+Enter a number from 1 to 7 : 6
+Saturday
+
+Enter a number from 1 to 7 : 7
+Sunday
+
+Enter a number from 1 to 7 : 8
+Invalid */
+
+================================================================================
+
+/************************************************
+ * Problem 9
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will take a number from 1 to 10
+ * and will determine whether the number is even
+ * or odd.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    // decl/input
+    int num;
+    printf("Enter a number from 1 to 10 : ");
+    scanf("%d", &num);
+
+    // logic/output
+    switch (num)
+    {
+        case 1: case 3: case 5: case 7: case 9:
+            printf("%d is odd\n", num);
+            break;
+        case 2: case 4: case 6: case 8: case 10:
+            printf("%d is even\n", num);
+            break;
+        default:
+            printf("Invalid input\n");
+    }
+
+    // exit
+    return 0;
+}
+
+/* OUTPUTS #9
+Enter a number from 1 to 10 : 2
+2 is even
+
+Enter a number from 1 to 10 : 4
+4 is even
+
+Enter a number from 1 to 10 : 1
+1 is odd
+
+Enter a number from 1 to 10 : 9
+9 is odd
+
+Enter a number from 1 to 10 : 11
+Invalid input */
