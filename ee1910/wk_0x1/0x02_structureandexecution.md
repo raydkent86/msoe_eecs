@@ -1,0 +1,161 @@
+# COMPUTER STRUCTURE #
+MAJOR COMPONENTS
+----------------
+* Instruction memory (long-term storage of programs)
+* Data memory (long-term storage of data)
+* Central processing unit (CPU)
+  * Registers (short-term storage of data)
+  * Arithmetic logic unit (ALU - performs operations on register data)
+  * Control unit
+    * Manages operation of the ALU
+    * Manages the flow of data to and from registers
+
+# STAGES OF COMPUTATION #
+Take one line of code:  
+`a = b + c;`  
+"a", "b" and "c" are variables, i.e. values stored in memory or in a register, which itself is a location to store binary bits.
+* b and c get their values from previous instruction
+* The ALU adds values to the memory, which were loaded into the register by the ALU as well (LOAD)
+* The result is written back to a register, then stored in memory when the register is needed for something else (STORE)
+
+That one line of code is therefore far more complex than at first meets the eye. It actually ends up becoming FOUR separate processor instructions that are done in this order:
+1. **LOAD** [MEM -> REG]: put values in registers
+2. **EXECUTE** [REG -> ALU]: do an operation on the values
+3. **WRITEBACK** [ALU -> REG]: place the result back into a register
+4. **STORE** [REG -> MEM]: move the result from a register to memory
+
+If we break this down into some simple pseudo-memory, this is approximately what it looks like:
+
+STARTING STATE
+--------------
+```text
+REGISTERS  |   MEMORY 
+  R1 = ?   |   a = ?  
+  R2 = ?   |   b = 5  
+  R3 = ?   |   c = 9  
+    ...    |    ...   
+```
+
+SUMMARY (instruction memory contents/assembly code/machine code)
+----------------------------------------------------------------
+```asm
+ld R1, mem(b)
+ld R2, mem(c)
+add R3, R1, R2
+st mem(a), R3
+```
+
+EXECUTION
+---------------
+**STEP 1** Load  
+**CONTROL** `ld R1 <- mem(b)`
+```text
+REGISTERS  |   MEMORY
+  R1 = 5   |   a = ?
+  R2 = 9   |   b = 5
+  R3 = ?   |   c = 9
+    ...    |    ...
+```
+
+**STEP 2** Execute  
+**ALU** `R1 + R2 = 5 + 9 = 14`
+```text
+REGISTERS  |   MEMORY
+  R1 = 5   |   a = ?
+  R2 = 9   |   b = 5
+  R3 = ?   |   c = 9
+    ...    |    ...
+```
+
+**STEP 3** Writeback
+**CONTROL** `R3 <- (R1 + R2) = 14`
+```text
+REGISTERS  |   MEMORY
+  R1 = 5   |   a = ?
+  R2 = 9   |   b = 5
+  R3 = 14  |   c = 9
+    ...    |    ...
+```
+
+**STEP 4** Store
+**CONTROL** `st mem(a) <- R3`
+```text
+REGISTERS  |   MEMORY
+  R1 = 5   |   a = 14
+  R2 = 9   |   b = 5
+  R3 = 14  |   c = 9
+    ...    |    ...
+```
+
+PROGRAM EXECUTION
+-----------------
+* RISC instruction sets have two basic types of instructions
+  * Register-based instructions: instructions only requiring access to
+    internal processor registers
+    * arithmetic
+    * logic
+    * control
+  * Memory operations read or write to memory/registers
+* RISC execution follows distinct fundamental operations
+  1. **FETCH** get next instruction from instruction memory
+  2. **DECODE** determine the meaning of the instruction
+  3. **EXECUTE** do what the instruction requires, which may include
+    * **LOAD** getting a value from memory
+    * **STORE** placing a value in data memory
+    * **WRITEBACK** storing the result of an execution in a register
+* Programs have a program counter (PC), which is a register containing the
+  next location in the instruction memory to be fetched
+  * behaves like a progress step counter, providing the address for the
+    upcoming instruction memory read
+  * generally incremented every clock cycle
+  * incremented based on the number of bytes in the instruction size (an
+    8-bit instruction would increment the address by two, a 16-bit
+    instruction would increment by four, a 32-bit instruction increments
+    by eight, and a 64-bit instruction increments by sixteen), since that
+    is how memory registers are measured
+* for the hell of it, here's the fully-loaded memory from before expressed
+  assuming what the registers imply: that the values are eight-bit integers
+  and therefore range from 0 to 255
+```text
+      REGISTERS    |   MEMORY
+  R1 = 0000 0101   |   a = 0000 1110
+  R2 = 0000 1001   |   b = 0000 0101
+  R3 = 0000 1110   |   c = 0000 1001
+            ...    |    ...
+```
+* the same thing with hexadecimal is
+```text
+      REGISTERS    |   MEMORY
+        R1 = 0x05  |   a = 0x0D
+        R2 = 0x09  |   b = 0x05
+        R3 = 0x0D  |   c = 0x09
+            ...    |    ...
+```
+* function calls store the "planned" next instruction address somewhere, jump
+  to the first instruction address for the function, step through the function,
+  and then jump back to that "planned" address when the function finishes
+  executing and reaches a virtual EOF
+* anyway, below is an unnecessary convolution of a program executing, where the
+  single line of code a = b + c turns into seven instructions (although we don't
+  tend to notice because this is the new millennium and our computers undergo
+  several billion processor instructions per second), with memory addresses on
+  the left and the detail of the instruction on the right and the instruction
+  encoding in the [square brackets], running on an 8-bit processor
+
+_COMPILER HAS ALLOCATED_  
+**0x4000** b  
+**0x4004** c  
+**0x4008** a  
+
+INSTRUCTION MEMORY
+```text
+0x1000: ldi R1, 4000     [90]
+0x1002: ld  R2, mem(R1)  [11]
+0x1004: ldi R1, 4004     [92]
+0x1006: ld  R3, mem(R1)  [12]
+0x1008: add R2, R3, R4   [27]
+0x100A: ldi R1, 4008     [84]
+0x100C: st  mem(R1), R4  [21]
+```
+* I'm not going to run through this because that would be super ass and waste
+  literally everyone's time

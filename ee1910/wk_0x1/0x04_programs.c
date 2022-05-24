@@ -1,28 +1,28 @@
 /* C PROGRAMS
 
 NOTE: IN THIS CLASS, WE WILL BE REQUIRED TO DO A FLOWCHART FOR EVERY PROGRAM WE WRITE.
-Keep in mind that while these may be trivial and stupid early on, they will become vastly more
-important as the scale of our software solutions increases.
+Keep in mind that while these may be trivial and stupid early on, they will become vastly 
+more important as the scale of our software solutions increases.
 
 The money is in ENGINEERING stuff, not in simply writing the code(s). That's what makes us
 different from code monkeys: we aren't simply looking to write a section to do one task.
-Instead, we're planning out a comprehensive solution, and fails in logic can't possibly happen
-if we're going to make a good program. If we find out at runtime that we've introduced a fault
-with our application, not having a flowchart can lead to a difficult debugging process, as we
-won't have any context for what's supposed to happen rather than what's actually going to
-happen.
+Instead, we're planning out a comprehensive solution, and fails in logic can't possibly
+happen if we're going to make a good program. If we find out at runtime that we've
+introduced a fault with our application, not having a flowchart can lead to a difficult
+debugging process, as we won't have any context for what's supposed to happen rather than
+what's actually going to happen.
 
 Computer science is one of the three formal sciences, combining mathematics and logic to
 codify the entirely new discipline brought about when computers became a thing, and, for a
-field so new, is possibly more important than any other field both in terms of making money
-and solving problems, because the physics of how the computer actually does this stuff is
-completely irrelevant - that's a job for the nerds at Intel, Apple and AMD. What is relevant
-is that these principles are universally true for all computers, which are nothing more than
-executors of logic and math.
+field so new, is possibly more important than any other field both in terms of making
+money and solving problems, because the physics of how the computer actually does this
+stuff is completely irrelevant - that's a job for the nerds at Intel, Apple and AMD.
+What is relevant is that these principles are universally true for all computers, which
+are nothing more than executors of logic and math.
 
 Anyway... let's talk about the basic guts of programs that will always be there:
  [PREPROCESSOR DIRECTIVES]
- [GLOBAL DECLARATIONS (never use)]
+ [GLOBAL DECLARATIONS (never use, except for prototypes)]
  int main(void)
  {
      [LOCAL DECLARATIONS]
@@ -30,8 +30,9 @@ Anyway... let's talk about the basic guts of programs that will always be there:
  }
  [ADDITIONAL FUNCTIONS]
 
-Preprocessor directives: provide info to the tool chain including additional files to include
-                         name definitions, constant definitions, and always start with a #
+Preprocessor directives: provide info to the tool chain including additional files to
+                         include, name definitions, constant definitions, and always start
+                         with a #
                          Examples include
                             #include: add the contents of a library to the top of the file
                             #define: perform a text substitution at compile time for a given
@@ -39,12 +40,15 @@ Preprocessor directives: provide info to the tool chain including additional fil
                                      everywhere it shows up)
 Global declarations: definitions of variables that can be seen throughout the program.
                      WE WILL NOT DO THIS IN THIS CLASS (because it's retarded).
-                     Also includes function prototypes (which we will do, because it's good)
-main(): function containing top-level program code that goes to instruction memory, usually
-        containing the local declarations along with the top-level statements
+                     Also includes function prototypes (which we will do, because it's
+                     good)
+main(): function containing top-level program code that goes to instruction memory,
+        usually containing the local declarations along with the top-level statements
 Functions: subroutines called to do a specific task - usually takes an input and gives an
-           output, but sometimes it effectively gives multiple outputs when stuff is passed
-           by reference (more on that later)
+           output, but sometimes it effectively gives multiple outputs when stuff is
+           passed by reference (more on that later)
+           GOOD CODE USES main() FOR CONTROL AND FUNCTIONS FOR GETTING THINGS DONE. No matter
+           how trivial this might seem at first, it makes everything more scalable in the end.
 
 Here's a little example of a simple console program: */
 
@@ -59,7 +63,9 @@ float calc_circumference(float);
 // main method
 int main()
 {
-    setbuf(stdout, NULL); // disable output buffering
+    // disable output buffering feature in Code Composer Studio
+    // not necessary for normal C compilers and consoles, but makes our life easier in CCS
+    setbuf(stdout, NULL);
 
     // local variables
     float radius;
@@ -136,7 +142,7 @@ COMPILER
       to access and when
     - assembly languages vary by architecture (x86 vs PowerPC, etc), but here's an example
         ldi R2, 5; // load register 2 with the value 5
-        sts R2, 0x0200; // copy value in R2 to memory address 0x0200 (0000 0100 0000 0000)
+        sts R2, 0x0200; // copy value in R2 to memory address 0x0200 (0000 0010 0000 0000)
         add R2, R1; // add values of R2 and R1 and store in R2
 ASSEMBLER
     - converts assembly language to machine language/binary
@@ -156,7 +162,8 @@ LINKER
 LOADER (programmer)
     - creates whatever environment is necessary on the executing machine
         + can be as simple as turna on and logga in
-        + can also be a lot more involved (setting up env variables, running other tasks, etc.)
+        + can also be a lot more involved (setting up env variables, running other tasks,
+          etc.)
     - loads the executible file
     - starts the program
 
