@@ -1,0 +1,15 @@
+/* DR. LOKE CAN'T TELL ME WHAT THIS LECTURE IS ABOUT
+ * Then he'd just be repeating what he said.
+ * In the meantime, Professor Mather is going to come in and talk about writing codes...
+ * ...or whatever.
+ *
+ * In the meantime, I'm moving this stuff to the iCloud Drive -- this way I can edit
+ * even when my laptop runs outta battery. Like it's about to do now. */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* Turns out the talk is about internships. Money. Like the sort of stuff that you need
+ * once your parentals are gone. But she's not here yet, so let's start class.
+ *
+ * LONG-ASS WRITING PORTION (theory to apply your code[s] properly)

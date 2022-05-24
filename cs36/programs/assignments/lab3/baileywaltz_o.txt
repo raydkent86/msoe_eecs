@@ -1,0 +1,779 @@
+// CS36 LAB 3
+
+/************************************************
+ * Problem 1
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will calculate the sum of all the
+ * numbers from m to n.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int m, n, sum = 0;
+    printf("Enter the value of m : ");
+    scanf("%d", &m);
+    printf("Enter the value of n : ");
+    scanf("%d", &n);
+    if (m >= n)
+        printf("Invalid input, m must be less than n!\n");
+    else
+    {
+        while (m <= n)
+        {
+            sum += m;
+            m++;
+        }
+        printf("Sum = %d\n", sum);
+    }
+    return 0;
+}
+
+/* OUTPUTS 1
+Enter the value of m : 7
+Enter the value of n : 11
+Sum = 45
+
+Enter the value of m : 9
+Enter the value of n : 33
+Sum = 525
+
+Enter the value of m : 9 
+Enter the value of n : 7
+Invalid input, m must be less than n!
+
+Enter the value of m : 7 
+Enter the value of n : 10
+Sum = 34
+
+Enter the value of m : 1
+Enter the value of n : 9
+Sum = 45 */
+
+================================================================================
+
+/************************************************
+ * Problem 2
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will read numbers and count the
+ * types of numbers entered (+/-/0)
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int x, pos = 0, neg = 0, zero = 0;
+    printf("Enter any number ,-1 to quit : ");
+    scanf("%d", &x);
+    while (x != -1)
+    {
+        if (x > 0)
+            pos++;
+        else
+            if (x < 0)
+                neg++;
+            else
+                zero++;
+        printf("Enter any number ,-1 to quit : ");
+        scanf("%d", &x);
+    }
+    printf("Count of positive numbers entered = %d\n", pos);
+    printf("Count of negative numbers entered = %d\n", neg);
+    printf("Count of zeroes numbers entered = %d\n", zero);
+    return 0;
+}
+
+/* OUTPUTS 2
+Enter any number ,-1 to quit : -12
+Enter any number ,-1 to quit : 108
+Enter any number ,-1 to quit : -24
+Enter any number ,-1 to quit : 0
+Enter any number ,-1 to quit : -23
+Enter any number ,-1 to quit : -1
+Count of positive numbers entered = 1
+Count of negative numbers entered = 3
+Count of zeroes numbers entered = 1
+
+Enter any number ,-1 to quit : 5
+Enter any number ,-1 to quit : 2
+Enter any number ,-1 to quit : -3
+Enter any number ,-1 to quit : -1
+Count of positive numbers entered = 2
+Count of negative numbers entered = 1
+Count of zeroes numbers entered = 0
+
+Enter any number ,-1 to quit : 0
+Enter any number ,-1 to quit : 0
+Enter any number ,-1 to quit : -1
+Count of positive numbers entered = 0
+Count of negative numbers entered = 0
+Count of zeroes numbers entered = 2
+
+Enter any number ,-1 to quit : -1
+Count of positive numbers entered = 0
+Count of negative numbers entered = 0
+Count of zeroes numbers entered = 0
+
+Enter any number ,-1 to quit : 9
+Enter any number ,-1 to quit : 9
+Enter any number ,-1 to quit : 8
+Enter any number ,-1 to quit : 2
+Enter any number ,-1 to quit : 48
+Enter any number ,-1 to quit : 11
+Enter any number ,-1 to quit : -14
+Enter any number ,-1 to quit : -29
+Enter any number ,-1 to quit : -1
+Count of positive numbers entered = 6
+Count of negative numbers entered = 2
+Count of zeroes numbers entered = 0 */
+
+================================================================================
+
+/************************************************
+ * Problem 3
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will read characters until a * is
+ * encountered, and count uppercase/lowercase
+ * and digits.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    char c;
+    int upper = 0, lower = 0, digit = 0;
+    printf("Enter any character, or * to quit : ");
+    scanf("%c", &c);
+    while (c != '*')
+    {
+        if (c >= 'A' && c <= 'Z')
+            upper++;
+        else
+            if (c >= 'a' && c <= 'z')
+                lower++;
+            else
+                if (c >= '0' && c <= '9')
+                    digit++;
+        printf("Enter any character, or * to quit : ");
+        getchar();
+        scanf("%c", &c);
+    }
+    printf("\nTotal count of lowercase characters entered = %d\n", lower);
+    printf("Total count of uppercase characters entered = %d\n", upper);
+    printf("Total count of digits entered = %d\n", digit);
+    return 0;
+}
+
+/* OUTPUTS 3
+Enter any character, or * to quit : O
+Enter any character, or * to quit : p
+Enter any character, or * to quit : A
+Enter any character, or * to quit : d
+Enter any character, or * to quit : 2
+Enter any character, or * to quit : *
+
+Total count of lowercase characters entered = 2
+Total count of uppercase characters entered = 2
+Total count of digits entered = 1
+
+
+Enter any character, or * to quit : i
+Enter any character, or * to quit : i
+Enter any character, or * to quit : P
+Enter any character, or * to quit : z
+Enter any character, or * to quit : *
+
+Total count of lowercase characters entered = 3
+Total count of uppercase characters entered = 1
+Total count of digits entered = 0
+
+
+Enter any character, or * to quit : *
+
+Total count of lowercase characters entered = 0
+Total count of uppercase characters entered = 0
+Total count of digits entered = 0
+
+
+Enter any character, or * to quit : 9
+Enter any character, or * to quit : s
+Enter any character, or * to quit : )
+Enter any character, or * to quit : z
+Enter any character, or * to quit : +
+Enter any character, or * to quit : *
+
+Total count of lowercase characters entered = 2
+Total count of uppercase characters entered = 0
+Total count of digits entered = 1
+
+
+Enter any character, or * to quit : i
+Enter any character, or * to quit : I
+Enter any character, or * to quit : z
+Enter any character, or * to quit : 0
+Enter any character, or * to quit : 1
+Enter any character, or * to quit : 2
+Enter any character, or * to quit : 3
+Enter any character, or * to quit : 4
+Enter any character, or * to quit : 5
+Enter any character, or * to quit : 6
+Enter any character, or * to quit : 7
+Enter any character, or * to quit : a
+Enter any character, or * to quit : b
+Enter any character, or * to quit : C
+Enter any character, or * to quit : D
+Enter any character, or * to quit : e
+Enter any character, or * to quit : F 
+Enter any character, or * to quit : g
+Enter any character, or * to quit : h I
+Enter any character, or * to quit : Enter any character, or * to quit : *
+
+Total count of lowercase characters entered = 7
+Total count of uppercase characters entered = 5
+Total count of digits entered = 8 */
+
+================================================================================
+
+/************************************************
+ * Problem 4
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will calculate the sum and average
+ * of the first n numbers.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int n, sum = 0, count = 1;
+    float avg;
+    printf("Enter the value of n : ");
+    scanf("%d", &n);
+    if (n > 0)
+    {
+        do
+        {
+            sum += count;
+            count++;
+        } while (count <= n);
+        avg = (float)sum / (float)n;
+        printf("The sum of first %d numbers =%d\n", n, sum);
+        printf("The average of first  18 numbers = %.2f\n", avg);
+    }
+    else
+        printf("Invalid value, exiting\n");
+    return 0;
+}
+
+/* OUTPUTS 4
+Enter the value of n : 18
+The sum of first 18 numbers =171
+The average of first  18 numbers = 9.50
+
+Enter the value of n : 22
+The sum of first 22 numbers =253
+The average of first  18 numbers = 11.50
+
+Enter the value of n : 2
+The sum of first 2 numbers =3
+The average of first  18 numbers = 1.50
+
+Enter the value of n : 91
+The sum of first 91 numbers =4186
+The average of first  18 numbers = 46.00
+
+Enter the value of n : 0
+Invalid value, exiting */
+
+================================================================================
+
+/************************************************
+ * Problem 5
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will use a do-while loop to
+ * display the square and cube of the first n
+ * natural numbers.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int n, count = 1;
+    printf("Enter the value of n : ");
+    scanf("%d", &n);
+    if (n > 0)
+    {
+        printf("\n--------------------------------------\n");
+        do
+        {
+            printf("|    %-5d|     %-7d|     %-8d|\n", count, (count * count), (count * count * count));
+            count++;
+        } while (count <= n);
+        printf("--------------------------------------\n");
+    }
+    else
+        printf("Invalid value, exiting\n");
+    return 0;
+}
+
+/* OUTPUTS 5
+Enter the value of n : 5
+
+--------------------------------------
+|    1    |     1      |     1       |
+|    2    |     4      |     8       |
+|    3    |     9      |     27      |
+|    4    |     16     |     64      |
+|    5    |     25     |     125     |
+--------------------------------------
+
+Enter the value of n : 15
+
+--------------------------------------
+|    1    |     1      |     1       |
+|    2    |     4      |     8       |
+|    3    |     9      |     27      |
+|    4    |     16     |     64      |
+|    5    |     25     |     125     |
+|    6    |     36     |     216     |
+|    7    |     49     |     343     |
+|    8    |     64     |     512     |
+|    9    |     81     |     729     |
+|    10   |     100    |     1000    |
+|    11   |     121    |     1331    |
+|    12   |     144    |     1728    |
+|    13   |     169    |     2197    |
+|    14   |     196    |     2744    |
+|    15   |     225    |     3375    |
+--------------------------------------
+
+Enter the value of n : 9
+--------------------------------------
+|    1    |     1      |     1       |
+|    2    |     4      |     8       |
+|    3    |     9      |     27      |
+|    4    |     16     |     64      |
+|    5    |     25     |     125     |
+|    6    |     36     |     216     |
+|    7    |     49     |     343     |
+|    8    |     64     |     512     |
+|    9    |     81     |     729     |
+--------------------------------------
+
+Enter the value of n : 1
+--------------------------------------
+|    1    |     1      |     1       |
+--------------------------------------
+
+Enter the value of n : 0
+Invalid value, exiting */
+
+================================================================================
+
+/************************************************
+ * Problem 6
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will use a deterministic for loop
+ * to print a number triangle with the given base
+ * size.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int i, j, base, line = 1;
+    printf("Enter base size of triangle for pattern : ");
+    scanf("%d", &base);
+    if (base > 0)
+    {
+        printf("\n");
+        for (i = 1; i <= base; i++)
+        {
+            for (j = 1; j <= line; j++)
+                printf("%d", j);
+            printf("\n");
+            line++;
+        }
+    }
+    else
+        printf("Invalid value, exiting\n");
+    return 0;
+}
+
+/* OUTPUTS 6
+Enter base size of triangle for pattern : 5
+
+1
+12
+123
+1234
+12345
+
+Enter base size of triangle for pattern : 2
+
+1
+12
+
+Enter base size of triangle for pattern : 9
+
+1
+12
+123
+1234
+12345
+123456
+1234567
+12345678
+123456789
+
+Enter base size of triangle for pattern : 6
+
+1
+12
+123
+1234
+12345
+123456
+
+Enter base size of triangle for pattern : 0
+Invalid value, exiting */
+
+================================================================================
+
+/************************************************
+ * Problem 7
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will use a deterministic for loop
+ * to print a character triangle up to a given
+ * character of the alphabet.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    char i, j, line, base;
+    printf("Enter highest alphabet : ");
+    scanf("%c", &base);
+    if (base >= 'A' && base <= 'Z')
+    {
+        line = 'A';
+        for (i = 'A'; i <= base; i++)
+        {
+            for (j = 'A'; j <= line; j++)
+                printf("%c", j);
+            printf("\n");
+            line++;
+        }
+    }
+    else
+        if (base >= 'a' && base <= 'z')
+        {
+            line = 'a';
+            for (i = 'a'; i <= base; i++)
+            {
+                for (j = 'a'; j <= line; j++)
+                    printf("%c", j);
+                printf("\n");
+                line++;
+            }
+        }
+        else
+            printf("Invalid value, exiting\n");
+    return 0;
+}
+
+/* OUTPUTS 7
+Enter highest alphabet : F
+A
+AB
+ABC
+ABCD
+ABCDE
+ABCDEF
+
+Enter highest alphabet : f
+a
+ab
+abc
+abcd
+abcde
+abcdef
+
+Enter highest alphabet : I
+A
+AB
+ABC
+ABCD
+ABCDE
+ABCDEF
+ABCDEFG
+ABCDEFGH
+ABCDEFGHI
+
+Enter highest alphabet : k
+a
+ab
+abc
+abcd
+abcde
+abcdef
+abcdefg
+abcdefgh
+abcdefghi
+abcdefghij
+abcdefghijk
+
+Enter highest alphabet : 1
+Invalid value, exiting */
+
+================================================================================
+
+/************************************************
+ * Problem 8
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will use a for loop to print out
+ * a multiplication table from 0 to 12 for a
+ * specified number.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int num, i;
+    printf("Enter the multiplication table for : ");
+    scanf("%d", &num);
+    printf("\n");
+    for (i = 0; i <= 12; i++)
+        printf("%d X %d = %d\n", num, i, (num * i));
+    return 0;
+}
+
+/* OUTPUTS 8
+Enter the multiplication table for : 2
+
+2 X 0 = 0
+2 X 1 = 2
+2 X 2 = 4
+2 X 3 = 6
+2 X 4 = 8
+2 X 5 = 10
+2 X 6 = 12
+2 X 7 = 14
+2 X 8 = 16
+2 X 9 = 18
+2 X 10 = 20
+2 X 11 = 22
+2 X 12 = 24
+
+Enter the multiplication table for : 9
+
+9 X 0 = 0
+9 X 1 = 9
+9 X 2 = 18
+9 X 3 = 27
+9 X 4 = 36
+9 X 5 = 45
+9 X 6 = 54
+9 X 7 = 63
+9 X 8 = 72
+9 X 9 = 81
+9 X 10 = 90
+9 X 11 = 99
+9 X 12 = 108
+
+Enter the multiplication table for : -2
+
+-2 X 0 = 0
+-2 X 1 = -2
+-2 X 2 = -4
+-2 X 3 = -6
+-2 X 4 = -8
+-2 X 5 = -10
+-2 X 6 = -12
+-2 X 7 = -14
+-2 X 8 = -16
+-2 X 9 = -18
+-2 X 10 = -20
+-2 X 11 = -22
+-2 X 12 = -24
+
+Enter the multiplication table for : 25
+
+25 X 0 = 0
+25 X 1 = 25
+25 X 2 = 50
+25 X 3 = 75
+25 X 4 = 100
+25 X 5 = 125
+25 X 6 = 150
+25 X 7 = 175
+25 X 8 = 200
+25 X 9 = 225
+25 X 10 = 250
+25 X 11 = 275
+25 X 12 = 300
+
+Enter the multiplication table for : 7
+
+7 X 0 = 0
+7 X 1 = 7
+7 X 2 = 14
+7 X 3 = 21
+7 X 4 = 28
+7 X 5 = 35
+7 X 6 = 42
+7 X 7 = 49
+7 X 8 = 56
+7 X 9 = 63
+7 X 10 = 70
+7 X 11 = 77
+7 X 12 = 84 */
+
+================================================================================
+
+/************************************************
+ * Problem 9
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will calculate the sum of a
+ * number's digits using a loop.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int num, sum = 0, digit, factor = 1;
+    printf("Enter the number : ");
+    scanf("%d", &num);
+    if (num != 0)
+    {
+        while (factor <= num && num != 1)
+            factor *= 10;
+        do
+        {
+            factor /= 10;
+            digit = num / factor;
+            sum += digit;
+            num -= (digit * factor);
+        } while (factor > 1);
+    }
+    printf("The sum of its digits : %d\n", sum);
+    return 0;
+}
+
+/* OUTPUTS 9
+Enter the number : 123
+The sum of its digits : 6
+
+Enter the number : 81
+The sum of its digits : 9
+
+Enter the number : 888
+The sum of its digits : 24
+
+Enter the number : 72
+The sum of its digits : 9
+
+Enter the number : 0
+The sum of its digits : 0 */ 
+
+================================================================================
+
+/************************************************
+ * Problem 10
+ * Owen Bailey-Waltz
+ * 1158982
+ * This program will answer whether the sum of
+ * the cubes of its digits is equal to the number
+ * itself, and will run until the user enters a
+ * "*" into the console.
+ ************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int num = 0, i, sum, digit, factor = 1;
+    char quit = 0;
+    do
+    {
+        printf("Enter a number, or * to quit : ");
+        if (scanf("%d", &num) == 0)
+            quit = getchar();
+        if (quit != '*')
+        {
+            if (num != 0)
+            {
+                sum = 0;
+                i = num;
+                while (factor <= num && num != 1)
+                    factor *= 10;
+                do
+                {
+                    factor /= 10;
+                    digit = i / factor;
+                    printf("%d**3", digit);
+                    sum += (digit * digit * digit);
+                    i -= (digit * factor);
+                    if (factor > 1)
+                        printf(" + ");
+                } while (factor > 1);
+                if (sum == num)
+                    printf(" is = %d\n", num);
+                else
+                    printf(" is not = %d\n", num);
+            }
+            else
+                if (num == 0)
+                    printf("0**3 is = 0\n");
+        }
+    } while (quit != '*');
+    return 0;
+}
+
+/* OUTPUTS 10
+Enter a number, or * to quit : 432
+4**3 + 3**3 + 2**3 is not = 432
+Enter a number, or * to quit : 371
+3**3 + 7**3 + 1**3 is = 371
+Enter a number, or * to quit : 5921
+5**3 + 9**3 + 2**3 + 1**3 is not = 5921
+Enter a number, or * to quit : 88
+8**3 + 8**3 is not = 88
+Enter a number, or * to quit : *
+
+Enter a number, or * to quit : 911
+9**3 + 1**3 + 1**3 is not = 911
+Enter a number, or * to quit : *
+
+Enter a number, or * to quit : *
+
+Enter a number, or * to quit : 91
+9**3 + 1**3 is not = 91
+Enter a number, or * to quit : 211
+2**3 + 1**3 + 1**3 is not = 211
+Enter a number, or * to quit : *
+
+Enter a number, or * to quit : 888
+8**3 + 8**3 + 8**3 is not = 888
+Enter a number, or * to quit : 1366
+1**3 + 3**3 + 6**3 + 6**3 is not = 1366
+Enter a number, or * to quit : 729
+7**3 + 2**3 + 9**3 is not = 729
+Enter a number, or * to quit : * */
