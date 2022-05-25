@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-// function prototypes: professors love these, but in actuality they're retarded
+// function prototypes
 int get_score(int, int);
 float calc_avg(int, int, int);
 int print_grade(int, float);
