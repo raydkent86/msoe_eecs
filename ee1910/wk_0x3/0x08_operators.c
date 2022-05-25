@@ -119,7 +119,8 @@ int relational()
 /* LOGICAL OPERATORS
  * The logical NOT INVERTS the logical value.
  * The logical OR evaluates both sides then does an OR.
- * The logical AND evaluates both sides then does an AND. */
+ * The logical AND evaluates both sides then does an AND.
+ * REMEMBER: the ONLY INTEGER VALUE that is FALSE is ZERO. */
 int logical()
 {
     int a = 13;
@@ -171,7 +172,9 @@ int bitwise()
  *      (a < ((b * c) >> 2)) || 7
  * which will give a one no matter what because it's an OR, making it 0xDEADC0DE - code that
  * doesn't functionally do anything except waste the hell out of memory. The reason it wastes
- * memory is because C has to evaluate all those higher-priority 
+ * memory is because C has to evaluate all those higher-priority statements before it can
+ * establish that the value to the left is a one for sure, and if you do this with values that
+ * can change, your programming memory is going to look like a toilet filled with diarrhea dump.
  * 
  * Also note that you can't do something with a side effect and then use the same operand
  * elswehere. For instance,
@@ -181,9 +184,9 @@ int bitwise()
  * directly to 7 or 0xDEADBEEF or something like that. Remember, the compiler can do WHATEVER
  * IT WANTS, and yes, if it goofs up it can cause memory leaks and runtime crashes and any
  * other manner of unsavory stuff, but sometimes expressions like that can lead to the
- * discovery of
+ * discovery of ridiculous Easter eggs that nobody thought would ever be found in a million years.
  * 
- * One final thing: you want your code to be READABLE. C programmers have this really horrible
+ * One final thing: you want your code to be READABLE. Programmers have this really horrible
  * habit of making their code as deliberately illegible as possible, and as a result you have
  * no shortage of this business:
  *      z=4*24>>5<2==2^a++;
@@ -191,7 +194,9 @@ int bitwise()
  * to expand it out, a more readable version would be
  *      z = 4 * 24 >> 5 < 2 == 2 ^ a++;
  * that will then become
- *      z = (4 * 24) >> 5
+ *      z = ((((4 * 24) >> 5) < 2) == 2) ^ a++;
+ * after you finally figure out what manner of black magic that fucktard managed to do.
+ * Please, do not ever do this in your code. I will come and k*ll you very slowly if you do. */
 
 /* EXPRESSIONS
  * All these operators 'n' crap combine together to form expressions that represent things.
@@ -226,7 +231,7 @@ int bitwise()
  * UNARY
  *  - one operator followed by one operand
  *  - operand can be any expression
- *  - unary +/-, typecasts, and sizeof() are all unary
+ *  - unary +/- (a.k.a. positive/negative), typecasts, and sizeof() are all unary
  * BINARY
  *  - operand, operator, operand
  *  - familiar to us: +, -, *, /, %

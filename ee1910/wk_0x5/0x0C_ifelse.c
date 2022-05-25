@@ -140,10 +140,9 @@ char flip_case(char c)
  * int elif(){int a,b,c;int foo,bar,boo;a=b=15;if(a==b)foo=3;if(a>b)foo=9;a=3;b=5;c=2;if(a&&b++){c=5;a=9;}if(b>=c)c=19;else foo=19;foo=4;bar=86;boo=25;if(bar>=(foo+2*boo))a=boo;b=foo;else c=bar;return 0;}
  * 
  * then you're surely going to get fired before getting offered a job at Microsoft five
- * minutes later, because it takes serious talent to make code that readable. The best
+ * minutes later, because it takes serious talent to make code that unreadable. The best
  * programmers have mastered this skill, so an easy way to tell how shit a programmer is
  * is that his code is completely and totally readable to both a computer and a human. */
-
 
 int main()
 {
