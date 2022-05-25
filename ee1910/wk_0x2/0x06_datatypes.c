@@ -108,7 +108,9 @@ void chars(void)
  *  - values are system dependent
  *      + cannot represent fractions
  *      + generally 16 to 64 bits [2, 4, or 8 bytes]
- *      + defined in the program as short ints, ints, or long ints
+ *      + defined in the program as short ints, ints, or long ints (or long long ints, but we don't
+ *        talk about them - my father's other family were long long ints and we were kept out of
+ *        sight)
  *  - operations are wider than booleans
  *      + arithmetic (+, -, *, /, %)
  *      + comparison (>, <, >=, <=, ==, !=)
@@ -198,8 +200,8 @@ int floats()
  *  - can be declared in a daisy chain, but not a good practice (int a, b, c;)
  *  - not initialized just by declaring them
  *      + some compilers autoinit to 0
- *      + other times, you get garbage because the memory locations have old
- *        values that haven't decayed yet
+ *      + other times, you get garbage because the memory locations have DRAM init values
+ *        or old values that haven't decayed yet
  *      + nothing stops you from using an uninitialized variables in compiler
  *        based languages, however in Python or Java or anything similar you
  *        will get runtime errors
@@ -285,7 +287,8 @@ int floats()
  *    directives (#define) that will substitute at compile time
  *  - constants are the ONLY TIME WE WILL DECLARE AND INITIALIZE AT THE SAME
  *    TIME - we will not do it in any other case because it's asking for
- *    trouble in most cases */
+ *    trouble in most cases
+ *  - generally a good practice to make #define constants all-caps */
 
 // two constants representing the all-on and all-off states of one of those eight-bit registers
 const uint8_t on = 0xFF;
